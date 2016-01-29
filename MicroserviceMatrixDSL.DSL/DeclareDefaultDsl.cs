@@ -1,10 +1,10 @@
 ﻿namespace MicroserviceMatrixDSL.DSL
 {
-    public class DeclareDeafultDsl
+    public class DeclareDefaultDsl
     {
         private readonly MicroserviceInfrastructureDsl _microserviceInfrastructureDesciptionBuilder;
 
-        public DeclareDeafultDsl(MicroserviceInfrastructureDsl microserviceInfrastructureDesciptionBuilder)
+        public DeclareDefaultDsl(MicroserviceInfrastructureDsl microserviceInfrastructureDesciptionBuilder)
         {
             _microserviceInfrastructureDesciptionBuilder = microserviceInfrastructureDesciptionBuilder;
         }
@@ -20,10 +20,10 @@
                 .WithDefaultMicroserviceNamespace(defaultNamespace);
         }
 
-        public MicroserviceInfrastructureDsl Communication(string communicationMean)
+        public MicroserviceInfrastructureDsl Communication(string defaultCommunicationMean)
         {
             return _microserviceInfrastructureDesciptionBuilder
-                .WithDefaultCommunicationMean(communicationMean);
+                .WithDefaultCommunicationMean(defaultCommunicationMean);
         }
     }
 }

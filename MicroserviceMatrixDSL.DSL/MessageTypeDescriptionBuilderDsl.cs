@@ -61,9 +61,11 @@ namespace MicroserviceMatrixDSL.DSL
             return this;
         }
 
-        public DeclareDeafultDsl Default()
+        public DeclareDefaultDsl Default()
         {
-            return _microserviceInfrastructureBuilder.Default();
+            return _microserviceInfrastructureBuilder
+                   .WithDeclaredMessage(Create())
+                   .Default();
         }
     }
 }

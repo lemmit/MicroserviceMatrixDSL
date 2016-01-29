@@ -79,6 +79,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MicroserviceInfrastructureDescriptionPrinter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -91,6 +92,10 @@
     <ProjectReference Include="..\MicroserviceMatrixDSL.Builder\MicroserviceMatrixDSL.Builder.csproj">
       <Project>{d7fbd7bb-4f4f-4f0c-a662-ceaa8c4660c0}</Project>
       <Name>MicroserviceMatrixDSL.Builder</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MicroserviceMatrixDSL.CodeGenerator\MicroserviceMatrixDSL.CodeGenerator.csproj">
+      <Project>{f437645b-674f-464d-8749-d85080b291c0}</Project>
+      <Name>MicroserviceMatrixDSL.CodeGenerator</Name>
     </ProjectReference>
     <ProjectReference Include="..\MicroserviceMatrixDSL.DSL\MicroserviceMatrixDSL.DSL.csproj">
       <Project>{8bdea964-a701-47b6-8f93-b085ec268f0b}</Project>

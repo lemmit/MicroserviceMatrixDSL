@@ -6,17 +6,14 @@ message class PingMessage
 	using namespace HeheLolMessages
 message class PongMessage 
 	using namespace AnotherLolMessages
+message class EchoMessage 
+	using namespace HeheLolMessages
 message class LogMessage 
 	using namespace Common
-	
-/*generate message class EchoMessage 
-	with property int Id
-	with property string Hehe
-	using namespace EchoMessages*/
+message class EmailMessage using namespace Common
 	
 //microservice namespace
 default namespace AwesomeMicroservicesCreatedUsingDSL
-
 //microservices declarations
 microservice Pinger 
 	using RabbitMq 
@@ -30,8 +27,9 @@ microservice Logger
 	using RabbitMq 
 	receives LogMessage
 	
+default communication REST
+
 microservice Logging 
-	using RabbitMq 
 	sends LogMessage
 	
 microservice Email like Logging 

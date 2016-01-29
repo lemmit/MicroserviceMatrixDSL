@@ -7,8 +7,6 @@ namespace MicroserviceMatrixDSL.DSL
 {
     public class MicroserviceDescriptionBuilderDsl
     {
-        public MicroserviceInfrastructureDsl GetInfrastructure() => _microserviceInfrastructureDsl;
-
         private readonly string _lastDeclaredMessageName = "";
         private readonly MicroserviceInfrastructureDsl _microserviceInfrastructureDsl;
         private readonly IMicroserviceDescriptionBuilder _microserviceDescriptionBuilder;
@@ -117,6 +115,17 @@ namespace MicroserviceMatrixDSL.DSL
             if (string.IsNullOrEmpty(_lastDeclaredMessageName))
                 throw new InvalidOperationException("Microservice first has to receive something to respond!");
             return this;
+        }
+
+        public DeclareDefaultDsl Default()
+        {
+            return Flush().Default();
+        }
+
+        public MicroserviceInfrastructureDsl Flush()
+        {
+            return _microserviceInfrastructureDsl
+                    .WithMicroservice(Create());
         }
     }
 }

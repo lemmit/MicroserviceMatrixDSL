@@ -45,9 +45,9 @@ namespace MicroserviceMatrixDSL.DSL
             _infrastractureDescriptionBuilder = infrastructureDesciptionBuilder;
         }
 
-        public DeclareDeafultDsl Default()
+        public DeclareDefaultDsl Default()
         {
-            return new DeclareDeafultDsl(this);
+            return new DeclareDefaultDsl(this);
         }
 
         public MicroserviceInfrastructureDsl Using()
@@ -75,7 +75,7 @@ namespace MicroserviceMatrixDSL.DSL
             return _infrastractureDescriptionBuilder.Create();
         }
 
-        public MicroserviceInfrastructureDsl WithDefaultMessageNamespace(string messagesDefaultNamespace)
+        internal MicroserviceInfrastructureDsl WithDefaultMessageNamespace(string messagesDefaultNamespace)
         {
             return new MicroserviceInfrastructureDsl(
                     _infrastractureDescriptionBuilder
@@ -83,7 +83,7 @@ namespace MicroserviceMatrixDSL.DSL
                 );
         }
 
-        public MicroserviceInfrastructureDsl WithDefaultCommunicationMean(string communicationMean)
+        internal MicroserviceInfrastructureDsl WithDefaultCommunicationMean(string communicationMean)
         {
             return new MicroserviceInfrastructureDsl(
                    _infrastractureDescriptionBuilder
@@ -91,7 +91,7 @@ namespace MicroserviceMatrixDSL.DSL
                );
         }
 
-        public MicroserviceInfrastructureDsl WithDefaultMicroserviceNamespace(string microserviceDefaultNamespace)
+        internal MicroserviceInfrastructureDsl WithDefaultMicroserviceNamespace(string microserviceDefaultNamespace)
         {
             return new MicroserviceInfrastructureDsl(
                     _infrastractureDescriptionBuilder
@@ -99,7 +99,7 @@ namespace MicroserviceMatrixDSL.DSL
                 );
         }
 
-        public MicroserviceInfrastructureDsl WithDeclaredMessage(MessageTypeDescription messageTypeDescription)
+        internal MicroserviceInfrastructureDsl WithDeclaredMessage(MessageTypeDescription messageTypeDescription)
         {
             return new MicroserviceInfrastructureDsl(
                 _infrastractureDescriptionBuilder
@@ -107,7 +107,7 @@ namespace MicroserviceMatrixDSL.DSL
                 );
         }
 
-        public MicroserviceInfrastructureDsl WithMicroservice(MicroserviceDescription microserviceDescription)
+        internal MicroserviceInfrastructureDsl WithMicroservice(MicroserviceDescription microserviceDescription)
         {
             return new MicroserviceInfrastructureDsl(
                     _infrastractureDescriptionBuilder

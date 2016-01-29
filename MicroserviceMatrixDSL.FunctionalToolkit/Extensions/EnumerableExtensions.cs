@@ -50,6 +50,26 @@ namespace MicroserviceMatrixDSL.FunctionalToolkit.Extensions
                 .Aggregate("", (acc, val) => acc + separator + printFunc(val));
             return head + tail;
         }
+
+        public static IEnumerable<string> RemoveComments(this IEnumerable<string> lines)
+        {
+            return lines.Where(line => !line.Trim().StartsWith("//"));
+        }
+
+        public static IEnumerable<string> SplitLines(this IEnumerable<string> lines, char separator = ' ')
+        {
+            return lines.SelectMany(line => line.Split(separator));
+        }
+
+        public static IEnumerable<string> FilterWhitespaces(this IEnumerable<string> strings)
+        {
+            return strings.Where(token => !string.IsNullOrWhiteSpace(token) && !string.IsNullOrEmpty(token));
+        }
+
+        public static IEnumerable<string> Trim(this IEnumerable<string> strings)
+        {
+            return strings.Select(token => token.Trim());
+        }
     }
 }
 

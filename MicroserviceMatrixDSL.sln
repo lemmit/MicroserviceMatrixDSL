@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroserviceMatrixDSL.Funct
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroserviceMatrixDSL.Builder", "MicroserviceMatrixDSL.Builder\MicroserviceMatrixDSL.Builder.csproj", "{D7FBD7BB-4F4F-4F0C-A662-CEAA8C4660C0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroserviceMatrixDSL.CodeGenerator", "MicroserviceMatrixDSL.CodeGenerator\MicroserviceMatrixDSL.CodeGenerator.csproj", "{F437645B-674F-464D-8749-D85080B291C0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{D7FBD7BB-4F4F-4F0C-A662-CEAA8C4660C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D7FBD7BB-4F4F-4F0C-A662-CEAA8C4660C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D7FBD7BB-4F4F-4F0C-A662-CEAA8C4660C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F437645B-674F-464D-8749-D85080B291C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F437645B-674F-464D-8749-D85080B291C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F437645B-674F-464D-8749-D85080B291C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F437645B-674F-464D-8749-D85080B291C0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -42,7 +42,7 @@ namespace MicroserviceMatrixDSL.Builder
             _communicationMean = communicationMean;
             _namespace = namespaceName;
             _receiveRespondMessages = receiveRespondMessagesPairs
-                        .ToDictionary(elem => elem.Key, elem=> elem.Value);
+                        .ToDictionary();
             _sendsMessages = sendsMessagesTypeNames.ToList();
             _mixins = inheritedMixins.ToList();
         }
@@ -74,7 +74,7 @@ namespace MicroserviceMatrixDSL.Builder
         public IMicroserviceDescriptionBuilder RespondsToWith(string requestMessageTypeName, string responseMessageTypeName)
         {
             var dict = _receiveRespondMessages
-                        .ToDictionary(elem => elem.Key, elem => elem.Value);
+                        .ToDictionary();
             dict[requestMessageTypeName] = responseMessageTypeName;
             return new MicroserviceDescriptionBuilder(
                _microserviceName,
@@ -89,7 +89,7 @@ namespace MicroserviceMatrixDSL.Builder
         public IMicroserviceDescriptionBuilder RespondsTo(string requestMessageTypeName)
         {
             var dict = _receiveRespondMessages
-                        .ToDictionary(elem => elem.Key, elem => elem.Value);
+                        .ToDictionary();
             dict[requestMessageTypeName] = string.Empty;
 
             return new MicroserviceDescriptionBuilder(
