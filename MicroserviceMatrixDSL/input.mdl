@@ -1,0 +1,39 @@
+﻿default message namespace DefaultMessageNamespace.Messages
+
+//messages declarations
+message class TestMessage
+message class PingMessage 
+	using namespace HeheLolMessages
+message class PongMessage 
+	using namespace AnotherLolMessages
+message class LogMessage 
+	using namespace Common
+	
+/*generate message class EchoMessage 
+	with property int Id
+	with property string Hehe
+	using namespace EchoMessages*/
+	
+//microservice namespace
+default namespace AwesomeMicroservicesCreatedUsingDSL
+
+//microservices declarations
+microservice Pinger 
+	using RabbitMq 
+	receives PingMessage and responds PongMessage
+	
+microservice Echo 
+	using RabbitMq 
+	receives EchoMessage and responds with EchoMessage
+	
+microservice Logger 
+	using RabbitMq 
+	receives LogMessage
+	
+microservice Logging 
+	using RabbitMq 
+	sends LogMessage
+	
+microservice Email like Logging 
+	using RabbitMq 
+	receives EmailMessage
