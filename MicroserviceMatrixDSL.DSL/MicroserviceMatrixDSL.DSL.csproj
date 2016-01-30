@@ -41,6 +41,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DeclareDefaultDsl.cs" />
+    <Compile Include="Interfaces\IDeclareDefaultDsl.cs" />
+    <Compile Include="Interfaces\IMessageNamespaceDeclaringDsl.cs" />
+    <Compile Include="Interfaces\IMessageTypeDescriptionBuilderDsl.cs" />
+    <Compile Include="Interfaces\IMicroserviceDescriptionBuilderDsl.cs" />
+    <Compile Include="Interfaces\IMicroserviceInfrastructureDsl.cs" />
     <Compile Include="MessageNamespaceDeclaringDsl.cs" />
     <Compile Include="MessageTypeDescriptionBuilderDsl.cs" />
     <Compile Include="MicroserviceDescriptionBuilderDsl.cs" />

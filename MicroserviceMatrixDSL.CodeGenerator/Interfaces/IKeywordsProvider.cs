@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace MicroserviceMatrixDSL.CodeGenerator
+namespace MicroserviceMatrixDSL.CodeTranspiler.Interfaces
 {
     public interface IKeywordsProvider
     {

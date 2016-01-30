@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using MicroserviceMatrixDSL.CodeTranspiler.Interfaces;
 using MicroserviceMatrixDSL.FunctionalToolkit.Extensions;
 
-namespace MicroserviceMatrixDSL.CodeGenerator
+namespace MicroserviceMatrixDSL.CodeTranspiler
 {
     public class Tokenizer : ITokenizer
     {

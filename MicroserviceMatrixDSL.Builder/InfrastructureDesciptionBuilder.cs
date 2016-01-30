@@ -87,7 +87,7 @@ namespace MicroserviceMatrixDSL.Builder
                 MessagesDefaultNamespace,
                 MicroserviceDefaultNamespace,
                 DefaultCommunicationMean,
-                _messages.With(messageTypeDescription),
+                _messages.AndThen(messageTypeDescription),
                 _microservices);
         }
 
@@ -98,7 +98,7 @@ namespace MicroserviceMatrixDSL.Builder
                 MicroserviceDefaultNamespace,
                 DefaultCommunicationMean,
                 _messages,
-                _microservices.With(microserviceDescription));
+                _microservices.AndThen(microserviceDescription));
         }
     }
 }

@@ -2,9 +2,11 @@
 using System.IO;
 using CSScriptLibrary;
 using MicroserviceMatrixDSL.Builder.Descriptions;
-using MicroserviceMatrixDSL.CodeGenerator;
+using MicroserviceMatrixDSL.CodeTranspiler;
+using MicroserviceMatrixDSL.DescriptionPrinters;
 using MicroserviceMatrixDSL.DSL;
 using MicroserviceMatrixDSL.FunctionalToolkit.Extensions;
+using MicroserviceMatrixDSL.Generators;
 
 namespace MicroserviceMatrixDSL
 {
@@ -12,17 +14,26 @@ namespace MicroserviceMatrixDSL
     class Program
     {
         static void Main()
-        { 
-            //TestCSharpScriptEngine();
-            //new MicroserviceInfrastructureDescriptionPrinter().Print(Test());
-            //PrintKeywordsTest();
-            GeneratorTest();
+        {
+            var input = File.ReadAllLines("../../input.msdl");
+
+            var cg = new CodeGenerator(
+                new MicroserviceTemplatePrinter(), 
+                new DslToCSharpScriptTranspiler(
+                    new Tokenizer(
+                        input, 
+                        new KeywordsProvider()
+                    )),
+                input  
+            );
+            File.WriteAllText("test.generated.cs", cg.GeneratedCode);
+
             Console.ReadLine();
         }
         
         private static void PrintKeywordsTest()
         {
-            var input = File.ReadAllLines("../../input.mdl");
+            var input = File.ReadAllLines("../../input.msdl");
             var tokenizer = new Tokenizer(input, new KeywordsProvider());
             Console.WriteLine($"{"Token Value".PadRight(25)}| Is Keyword?");
             Console.WriteLine(tokenizer.Tokenized.Stringify(
@@ -31,18 +42,29 @@ namespace MicroserviceMatrixDSL
                 ));
         }
 
-        private static void GeneratorTest()
+        private static string Generate(IMicroserviceInfrastructureDescriptionPrinter printer)
         {
-            var input = File.ReadAllLines("../../input.mdl");
+            var input = File.ReadAllLines("../../input.msdl");
             var tokenizer = new Tokenizer(input, new KeywordsProvider());
-            var codeGenerator = new CodeGenerator.CodeGenerator(tokenizer);
+            var codeGenerator = new CodeTranspiler.DslToCSharpScriptTranspiler(tokenizer);
             var genCode = codeGenerator.GeneratedCode;
             Console.WriteLine(genCode);
             CSScript.EvaluatorConfig.Engine = EvaluatorEngine.CodeDom;
-            var generate = CSScript.Evaluator
-                                .CreateDelegate(genCode);
-            var description = (MicroserviceInfrastructureDescription)generate();
-            new MicroserviceInfrastructureDescriptionPrinter().Print(description);
+            try
+            {
+                var generate = CSScript.Evaluator
+                    .CreateDelegate(genCode);
+                var description = (MicroserviceInfrastructureDescription) generate();
+                return printer.Print(description);
+            }
+            catch (Exception e)
+            {
+                return $"/*CODE GENERATION ERROR:\n" +
+                       $"Input: {input.Stringify(t=>t,"\n")}\n" +
+                       $"Generated code: {genCode}\n" +
+                       $"Exception: {e}\n" +
+                       $"*/";
+            }
         }
 
         private static MicroserviceInfrastructureDescription Test()
@@ -66,5 +88,6 @@ namespace MicroserviceMatrixDSL
                 .Flush()
                 .Create();
         }
+
     }
 }

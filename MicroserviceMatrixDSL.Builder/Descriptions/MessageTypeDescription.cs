@@ -4,13 +4,13 @@ namespace MicroserviceMatrixDSL.Builder.Descriptions
     public class MessageTypeDescription
     {
         public string DeclaredMessageType { get; }
-        public string MessagesDefaultNamespace { get; }
+        public string Namespace { get; }
 
         public MessageTypeDescription(string declaredMessageType,
-            string messagesDefaultNamespace)
+            string @namespace)
         {
             DeclaredMessageType = declaredMessageType;
-            MessagesDefaultNamespace = messagesDefaultNamespace;
+            Namespace = @namespace;
         }
     }
 }

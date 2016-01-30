@@ -1,27 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using MicroserviceMatrixDSL.Builder.Descriptions;
 using MicroserviceMatrixDSL.FunctionalToolkit.Extensions;
 
-namespace MicroserviceMatrixDSL
+namespace MicroserviceMatrixDSL.DescriptionPrinters
 {
-    public class MicroserviceInfrastructureDescriptionPrinter
+    public class MicroserviceInfrastructureDescriptionDebugPrinter : IMicroserviceInfrastructureDescriptionPrinter
     {
-        public void Print(MicroserviceInfrastructureDescription microserviceInfrastructureDescription)
+        public string Print(MicroserviceInfrastructureDescription microserviceInfrastructureDescription)
         {
             var mms = microserviceInfrastructureDescription.MessageTypes.ToDictionary(
                 elem => elem.DeclaredMessageType,
-                elem => elem.MessagesDefaultNamespace
+                elem => elem.Namespace
                 ).ToVerboseDictionary();
-
-            Console.WriteLine("Declared messages:");
+            var sb = new StringBuilder();
+            sb.AppendLine("Declared messages:");
             microserviceInfrastructureDescription.MessageTypes.ForEach(msgType =>
-                Console.WriteLine($"{msgType.MessagesDefaultNamespace}." +
+                sb.AppendLine($"{msgType.Namespace}." +
                                   $"{msgType.DeclaredMessageType}")
                 );
 
-            Console.WriteLine("\nDeclared microservices:");
+            sb.AppendLine("\nDeclared microservices:");
             microserviceInfrastructureDescription.Microservices.ForEach(mcsDescription =>
             {
                 try
@@ -30,7 +31,7 @@ namespace MicroserviceMatrixDSL
                         pair =>
                             $"[{mms[pair.Key]}.{pair.Key}=>"
                             + $"{(!string.IsNullOrEmpty(pair.Value) ? mms[pair.Value] : "")}.{pair.Value}]";
-                    Console.WriteLine(
+                    sb.AppendLine(
                         $"****"
                         + $"\n{mcsDescription.Namespace}.{mcsDescription.MicroserviceName}"
                         + $"\nCommunication: {mcsDescription.CommunicationMean}"
@@ -41,9 +42,10 @@ namespace MicroserviceMatrixDSL
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine(e);
+                    sb.AppendLine(e.ToString());
                 }
             });
+            return sb.ToString();
         }
     }
 }

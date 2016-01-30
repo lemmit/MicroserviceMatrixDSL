@@ -1,4 +1,5 @@
-﻿default message namespace DefaultMessageNamespace.Messages
+﻿//TODO ADD IS to default declarations!!!
+default message namespace DefaultMessageNamespace.Messages
 
 //messages declarations
 message class TestMessage

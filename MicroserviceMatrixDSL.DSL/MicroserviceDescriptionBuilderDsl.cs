@@ -2,20 +2,21 @@
 using MicroserviceMatrixDSL.Builder;
 using MicroserviceMatrixDSL.Builder.Descriptions;
 using MicroserviceMatrixDSL.Builder.Interfaces;
+using MicroserviceMatrixDSL.DSL.Interfaces;
 
 namespace MicroserviceMatrixDSL.DSL
 {
-    public class MicroserviceDescriptionBuilderDsl
+    public class MicroserviceDescriptionBuilderDsl : IMicroserviceDescriptionBuilderDsl
     {
         private readonly string _lastDeclaredMessageName = "";
-        private readonly MicroserviceInfrastructureDsl _microserviceInfrastructureDsl;
+        private readonly IMicroserviceInfrastructureDsl _microserviceInfrastructureDsl;
         private readonly IMicroserviceDescriptionBuilder _microserviceDescriptionBuilder;
 
         public MicroserviceDescriptionBuilderDsl( 
             string microserviceName,
             string defaultCommunicationMean,
             string defaultMicroservieNamespace,
-            MicroserviceInfrastructureDsl microserviceInfrastructureDsl
+            IMicroserviceInfrastructureDsl microserviceInfrastructureDsl
             )
         {
             _microserviceInfrastructureDsl = microserviceInfrastructureDsl;
@@ -29,7 +30,7 @@ namespace MicroserviceMatrixDSL.DSL
         }
 
         private MicroserviceDescriptionBuilderDsl(
-            MicroserviceInfrastructureDsl microserviceInfrastructureDsl,
+            IMicroserviceInfrastructureDsl microserviceInfrastructureDsl,
             IMicroserviceDescriptionBuilder microserviceDescriptionBuilder,
             string lastAddedMessageTypeName
             )
@@ -40,7 +41,7 @@ namespace MicroserviceMatrixDSL.DSL
         }
 
 
-        public MicroserviceDescriptionBuilderDsl Using(string communicationMean)
+        public IMicroserviceDescriptionBuilderDsl Using(string communicationMean)
         {
             return new MicroserviceDescriptionBuilderDsl(
                     _microserviceInfrastructureDsl,
@@ -49,7 +50,7 @@ namespace MicroserviceMatrixDSL.DSL
                 );
         }
 
-        public MicroserviceDescriptionBuilderDsl Sends(string sendsMessageTypeName)
+        public IMicroserviceDescriptionBuilderDsl Sends(string sendsMessageTypeName)
         {
             return new MicroserviceDescriptionBuilderDsl(
                     _microserviceInfrastructureDsl,
@@ -58,7 +59,7 @@ namespace MicroserviceMatrixDSL.DSL
                 );
         }
 
-        public MicroserviceDescriptionBuilderDsl Receives(string receiveMessageTypeName)
+        public IMicroserviceDescriptionBuilderDsl Receives(string receiveMessageTypeName)
         {
             return new MicroserviceDescriptionBuilderDsl(
                     _microserviceInfrastructureDsl,
@@ -67,12 +68,12 @@ namespace MicroserviceMatrixDSL.DSL
                 );
         }
 
-        public MicroserviceDescriptionBuilderDsl And()
+        public IMicroserviceDescriptionBuilderDsl And()
         {
             return this;
         }
 
-        public MicroserviceDescriptionBuilderDsl Responds(string respondMessageTypeName)
+        public IMicroserviceDescriptionBuilderDsl Responds(string respondMessageTypeName)
         {
             if (string.IsNullOrEmpty(_lastDeclaredMessageName))
                 throw new InvalidOperationException("Microservice first has to receive something to respond!");
@@ -84,7 +85,7 @@ namespace MicroserviceMatrixDSL.DSL
                 );
         }
 
-        public MicroserviceDescriptionBuilderDsl Microservice(string microserviceName)
+        public IMicroserviceDescriptionBuilderDsl Microservice(string microserviceName)
         {
             return _microserviceInfrastructureDsl
                     .WithMicroservice(Create())
@@ -96,7 +97,7 @@ namespace MicroserviceMatrixDSL.DSL
             return _microserviceDescriptionBuilder.Create();
         }
 
-        public MicroserviceDescriptionBuilderDsl Like(string microserviceMixin)
+        public IMicroserviceDescriptionBuilderDsl Like(string microserviceMixin)
         {
             return new MicroserviceDescriptionBuilderDsl(
                     _microserviceInfrastructureDsl,
@@ -105,24 +106,24 @@ namespace MicroserviceMatrixDSL.DSL
                 );
         }
 
-        public MicroserviceDescriptionBuilderDsl With(string respondMessageTypeName)
+        public IMicroserviceDescriptionBuilderDsl With(string respondMessageTypeName)
         {
             return Responds(respondMessageTypeName);
         }
 
-        public MicroserviceDescriptionBuilderDsl Responds()
+        public IMicroserviceDescriptionBuilderDsl Responds()
         {
             if (string.IsNullOrEmpty(_lastDeclaredMessageName))
                 throw new InvalidOperationException("Microservice first has to receive something to respond!");
             return this;
         }
 
-        public DeclareDefaultDsl Default()
+        public IDeclareDefaultDsl Default()
         {
             return Flush().Default();
         }
 
-        public MicroserviceInfrastructureDsl Flush()
+        public IMicroserviceInfrastructureDsl Flush()
         {
             return _microserviceInfrastructureDsl
                     .WithMicroservice(Create());

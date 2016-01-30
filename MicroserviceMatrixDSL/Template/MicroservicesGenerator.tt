@@ -1,0 +1,25 @@
+﻿<#@ template language="C#" #>
+<#@ assembly name="System.Core" #>
+
+<# foreach(var microservicesByNamespace in MicroservicesByNamespace) { #>
+namespace <#= microservicesByNamespace.Key #> {
+
+<# foreach(var microservice in microservicesByNamespace) { 
+	var reqRespMessages = ReqResponseMessagesWithMixins(microservice.MicroserviceName);
+#>
+	public abstract class Abstract<#= microservice.MicroserviceName #>Service : <#=_inheritedFrom#> {
+<# foreach(var reqRespMessage in reqRespMessages){ #>
+		protected <#= MessageTypeNameWithNamespace(reqRespMessage.Value) #> ServiceMethod(<#= MessageTypeNameWithNamespace(reqRespMessage.Key) #> request){
+			return on<#= reqRespMessage.Key #>Request();
+		}
+		protected abstract <#= MessageTypeNameWithNamespace(reqRespMessage.Value) #> on<#= reqRespMessage.Key #>Request(<#= MessageTypeNameWithNamespace(reqRespMessage.Key) #> request);
+ <# } #>	
+<# foreach(var sendsMessage in MessagesSendedByMicroserviceWithMixins(microservice.MicroserviceName)){#> 
+		protected void Send(<#= MessageTypeNameWithNamespace(sendsMessage) #> message){
+			//...
+		}
+<#} #>
+	}
+<#}#>
+}
+<#}#>

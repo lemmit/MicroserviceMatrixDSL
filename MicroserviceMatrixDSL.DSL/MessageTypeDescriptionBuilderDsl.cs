@@ -1,16 +1,17 @@
 ﻿using MicroserviceMatrixDSL.Builder;
 using MicroserviceMatrixDSL.Builder.Descriptions;
 using MicroserviceMatrixDSL.Builder.Interfaces;
+using MicroserviceMatrixDSL.DSL.Interfaces;
 
 namespace MicroserviceMatrixDSL.DSL
 {
-    public class MessageTypeDescriptionBuilderDsl
+    public class MessageTypeDescriptionBuilderDsl : IMessageTypeDescriptionBuilderDsl
     {
-        private readonly MicroserviceInfrastructureDsl _microserviceInfrastructureBuilder;
+        private readonly IMicroserviceInfrastructureDsl _microserviceInfrastructureBuilder;
         private readonly IMessageTypeDescriptionBuilder _messageTypeDescriptionBuilder;
 
         public MessageTypeDescriptionBuilderDsl(
-            MicroserviceInfrastructureDsl microserviceInfrastructureBuilder)
+            IMicroserviceInfrastructureDsl microserviceInfrastructureBuilder)
         {
             _microserviceInfrastructureBuilder = microserviceInfrastructureBuilder;
              _messageTypeDescriptionBuilder = new MessageTypeDescriptionBuilder()
@@ -18,7 +19,7 @@ namespace MicroserviceMatrixDSL.DSL
         }
 
         public MessageTypeDescriptionBuilderDsl(
-            MicroserviceInfrastructureDsl microserviceInfrastructureBuilder, 
+            IMicroserviceInfrastructureDsl microserviceInfrastructureBuilder, 
             IMessageTypeDescriptionBuilder messageTypeDescriptionBuilder
             )
         {
@@ -26,7 +27,7 @@ namespace MicroserviceMatrixDSL.DSL
             _messageTypeDescriptionBuilder = messageTypeDescriptionBuilder;
         }
         
-        public MessageTypeDescriptionBuilderDsl Namespace(string messageTypeNamespace)
+        public IMessageTypeDescriptionBuilderDsl Namespace(string messageTypeNamespace)
         {
             return new MessageTypeDescriptionBuilderDsl(
                     _microserviceInfrastructureBuilder,
@@ -35,7 +36,7 @@ namespace MicroserviceMatrixDSL.DSL
                 );
         }
 
-        public MessageTypeDescriptionBuilderDsl Class(string declaredMessageType)
+        public IMessageTypeDescriptionBuilderDsl Class(string declaredMessageType)
         {
             return new MessageTypeDescriptionBuilderDsl(
                     _microserviceInfrastructureBuilder,
@@ -44,7 +45,7 @@ namespace MicroserviceMatrixDSL.DSL
                 );
         }
 
-        public MessageTypeDescriptionBuilderDsl Message()
+        public IMessageTypeDescriptionBuilderDsl Message()
         {
             return _microserviceInfrastructureBuilder
                     .WithDeclaredMessage(Create())
@@ -56,12 +57,12 @@ namespace MicroserviceMatrixDSL.DSL
             return _messageTypeDescriptionBuilder.Create();
         }
 
-        public MessageTypeDescriptionBuilderDsl Using()
+        public IMessageTypeDescriptionBuilderDsl Using()
         {
             return this;
         }
 
-        public DeclareDefaultDsl Default()
+        public IDeclareDefaultDsl Default()
         {
             return _microserviceInfrastructureBuilder
                    .WithDeclaredMessage(Create())

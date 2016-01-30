@@ -1,4 +1,4 @@
-namespace MicroserviceMatrixDSL.CodeGenerator
+namespace MicroserviceMatrixDSL.CodeTranspiler.Interfaces
 {
     public interface ITokenizer
     {

@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using MicroserviceMatrixDSL.CodeTranspiler.Interfaces;
 using MicroserviceMatrixDSL.DSL;
 using MicroserviceMatrixDSL.FunctionalToolkit;
 
-namespace MicroserviceMatrixDSL.CodeGenerator
+namespace MicroserviceMatrixDSL
 {
     public class KeywordsProvider : IKeywordsProvider
     {

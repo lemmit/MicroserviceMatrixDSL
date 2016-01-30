@@ -6,7 +6,7 @@ namespace MicroserviceMatrixDSL.FunctionalToolkit.Extensions
 {
     public static class EnumerableExtensions
     {
-        public static IEnumerable<T> With<T>(this IEnumerable<T> collection, T nextElem)
+        public static IEnumerable<T> AndThen<T>(this IEnumerable<T> collection, T nextElem)
         {
             foreach (var elem in collection)
             {
@@ -15,7 +15,7 @@ namespace MicroserviceMatrixDSL.FunctionalToolkit.Extensions
             yield return nextElem;
         }
 
-        public static IEnumerable<T> With<T>(this IEnumerable<T> collection, IEnumerable<T> nextCollection)
+        public static IEnumerable<T> AndThen<T>(this IEnumerable<T> collection, IEnumerable<T> nextCollection)
         {
             foreach (var elem in collection)
             {

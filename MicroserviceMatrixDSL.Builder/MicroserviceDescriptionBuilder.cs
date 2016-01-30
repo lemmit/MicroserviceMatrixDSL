@@ -110,7 +110,7 @@ namespace MicroserviceMatrixDSL.Builder
                 _namespace,
                 _receiveRespondMessages,
                 _sendsMessages,
-                _mixins.With(microserviceMixinName)
+                _mixins.AndThen(microserviceMixinName)
                 );
         }
 
@@ -121,7 +121,7 @@ namespace MicroserviceMatrixDSL.Builder
                 _communicationMean,
                 _namespace,
                 _receiveRespondMessages,
-                _sendsMessages.With(messageTypeName),
+                _sendsMessages.AndThen(messageTypeName),
                 _mixins
                 );
         }

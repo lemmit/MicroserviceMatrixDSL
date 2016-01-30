@@ -1,18 +1,20 @@
-﻿namespace MicroserviceMatrixDSL.DSL
-{
-    public class MessageNamespaceDeclaringDsl
-    {
-        private readonly MicroserviceInfrastructureDsl _microserviceInfrastructureDesciptionBuilder;
+﻿using System;
+using MicroserviceMatrixDSL.DSL.Interfaces;
 
-        public MessageNamespaceDeclaringDsl(MicroserviceInfrastructureDsl microserviceInfrastructureDesciptionBuilder)
+namespace MicroserviceMatrixDSL.DSL
+{
+    public class MessageNamespaceDeclaringDsl : IMessageNamespaceDeclaringDsl
+    {
+        private readonly IMicroserviceInfrastructureDsl _microserviceInfrastructureDesciptionBuilder;
+
+        public MessageNamespaceDeclaringDsl(IMicroserviceInfrastructureDsl microserviceInfrastructureDesciptionBuilder)
         {
             _microserviceInfrastructureDesciptionBuilder = microserviceInfrastructureDesciptionBuilder;
         }
 
-        public MicroserviceInfrastructureDsl Namespace(string defaultMessageNamespace)
+        public IMicroserviceInfrastructureDsl Namespace(string defaultMessageNamespace)
         {
             return _microserviceInfrastructureDesciptionBuilder.WithDefaultMessageNamespace(defaultMessageNamespace);
         }
-
     }
 }
