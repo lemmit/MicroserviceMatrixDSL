@@ -32,6 +32,8 @@ default communication REST
 
 microservice Logging 
 	sends LogMessage
+	sends EchoMessage
+	sends PongMessage
 	
 microservice Email like Logging 
 	using RabbitMq 

@@ -40,9 +40,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Descriptions\MessageTypeDescription.cs" />
-    <Compile Include="Descriptions\MicroserviceDescription.cs" />
-    <Compile Include="Descriptions\MicroserviceInfrastructureDescription.cs" />
     <Compile Include="InfrastructureDesciptionBuilder.cs" />
     <Compile Include="Interfaces\IInfrastructureDesciptionBuilder.cs" />
     <Compile Include="Interfaces\IMessageTypeDescriptionBuilder.cs" />
@@ -52,6 +49,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MicroserviceMatrixDSL.Descriptions\MicroserviceMatrixDSL.Descriptions.csproj">
+      <Project>{a00b9901-0d0e-460d-b053-529a2cbb7e2b}</Project>
+      <Name>MicroserviceMatrixDSL.Descriptions</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MicroserviceMatrixDSL.FunctionalToolkit\MicroserviceMatrixDSL.FunctionalToolkit.csproj">
       <Project>{b73ea206-6b05-4c04-bd4d-4461b3ae4de9}</Project>
       <Name>MicroserviceMatrixDSL.FunctionalToolkit</Name>

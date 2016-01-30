@@ -7,49 +7,27 @@ using MicroserviceMatrixDSL.FunctionalToolkit.Extensions;
 
 namespace MicroserviceMatrixDSL.CodeTranspiler
 {
-    public class DslToCSharpScriptTranspiler : ITranspiler
+    public class DslToCSharpTranspiler : ITranspiler
     {
         public string GeneratedCode => _generatedCode.Value;
 
         private readonly ITokenizer _tokenizer;
         private readonly Lazy<string> _generatedCode;
         private Token[] _tokens;
-
-        public DslToCSharpScriptTranspiler(ITokenizer tokenizer)
+        private int _pointer = 0;
+        
+        public DslToCSharpTranspiler(
+            ITokenizer tokenizer
+            )
         {
             _tokenizer = tokenizer;
             _generatedCode = new Lazy<string>(GenerateCode);
         }
 
-        public virtual string CodeBefore()
-        {
-            return @"
-                    //css_reference MicroserviceMatrixDSL.DSL;
-                    //css_reference MicroserviceMatrixDSL.Builder;
-                    using MicroserviceMatrixDSL.DSL;
-                    using MicroserviceMatrixDSL.Builder.Descriptions;
-
-                    MicroserviceInfrastructureDescription GenerateInfrastructureDescription()
-                    {
-                        return new MicroserviceInfrastructureDsl()
-                    ";
-        }
-
-        public virtual string CodeAfter()
-        {
-            return @".Flush().Create();
-                }
-            ";
-        }
-
-        private int _pointer = 0;
         private string GenerateCode()
         {
             var generatedCode = GenerateCodeFromDsl();
-            var final = CodeBefore()
-                        + generatedCode +
-                        CodeAfter();
-            return final;
+            return generatedCode;
         }
 
         private string GenerateCodeFromDsl()
@@ -95,7 +73,6 @@ namespace MicroserviceMatrixDSL.CodeTranspiler
             catch (Exception e)
             {
                 //TODO - exception types!
-                Debug.WriteLine("Exception handled.", e);
                 if (PeekNextToken() != null)
                 {
                     builder.Append($"Code generation error. Token:{token.Value} at pos [{_pointer}] => {e}");

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using MicroserviceMatrixDSL.CodeTranspiler.Interfaces;
-using MicroserviceMatrixDSL.DSL;
+using MicroserviceMatrixDSL.DSL.DslStates;
 using MicroserviceMatrixDSL.FunctionalToolkit;
 
 namespace MicroserviceMatrixDSL
@@ -12,11 +12,11 @@ namespace MicroserviceMatrixDSL
         {
             var lists = new[]
             {
-                typeof (MessageNamespaceDeclaringDsl).GetPublicMethodsWithNumberOfParams(),
-                typeof (MessageTypeDescriptionBuilderDsl).GetPublicMethodsWithNumberOfParams(),
-                typeof (MicroserviceDescriptionBuilderDsl).GetPublicMethodsWithNumberOfParams(),
-                typeof (MicroserviceInfrastructureDsl).GetPublicMethodsWithNumberOfParams(),
-                typeof (DeclareDefaultDsl).GetPublicMethodsWithNumberOfParams(),
+                typeof (DeclareNamespaceState).GetPublicMethodsWithNumberOfParams(),
+                typeof (MessageTypeDescribingState).GetPublicMethodsWithNumberOfParams(),
+                typeof (MicroserviceDescribingState).GetPublicMethodsWithNumberOfParams(),
+                typeof (BaseState).GetPublicMethodsWithNumberOfParams(),
+                typeof (DeclareDefaultsState).GetPublicMethodsWithNumberOfParams(),
             };
 
             var keywordList = lists

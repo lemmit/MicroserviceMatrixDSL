@@ -1,8 +1,8 @@
 ﻿using System;
 using CSScriptLibrary;
-using MicroserviceMatrixDSL.Builder.Descriptions;
 using MicroserviceMatrixDSL.CodeTranspiler.Interfaces;
 using MicroserviceMatrixDSL.DescriptionPrinters;
+using MicroserviceMatrixDSL.Descriptions;
 using MicroserviceMatrixDSL.FunctionalToolkit.Extensions;
 using MicroserviceMatrixDSL.Generators.Interfaces;
 

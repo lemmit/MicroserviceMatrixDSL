@@ -81,10 +81,12 @@
   <ItemGroup>
     <Compile Include="DescriptionPrinters\IMicroserviceInfrastructureDescriptionPrinter.cs" />
     <Compile Include="DescriptionPrinters\MicroserviceInfrastructureDescriptionDebugPrinter.cs" />
-    <Compile Include="DescriptionPrinters\MicroserviceTemplatePrinter.cs" />
+    <Compile Include="DescriptionPrinters\MicroserviceInfrastructureDescriptionToCSharpCodePrinter.cs" />
     <Compile Include="Generators\CodeGenerator.cs" />
     <Compile Include="Generators\Interfaces\ICodeGenerator.cs" />
+    <Compile Include="Generators\CSharpToCsScriptTranspilerDecorator.cs" />
     <Compile Include="KeywordsProvider.cs" />
+    <Compile Include="Template\MicroserviceInfrastructureDescriptionExtender.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Template\MicroservicesGenerator.cs">
@@ -107,6 +109,10 @@
     <ProjectReference Include="..\MicroserviceMatrixDSL.CodeTranspiler\MicroserviceMatrixDSL.CodeTranspiler.csproj">
       <Project>{f437645b-674f-464d-8749-d85080b291c0}</Project>
       <Name>MicroserviceMatrixDSL.CodeTranspiler</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MicroserviceMatrixDSL.Descriptions\MicroserviceMatrixDSL.Descriptions.csproj">
+      <Project>{a00b9901-0d0e-460d-b053-529a2cbb7e2b}</Project>
+      <Name>MicroserviceMatrixDSL.Descriptions</Name>
     </ProjectReference>
     <ProjectReference Include="..\MicroserviceMatrixDSL.DSL\MicroserviceMatrixDSL.DSL.csproj">
       <Project>{8bdea964-a701-47b6-8f93-b085ec268f0b}</Project>

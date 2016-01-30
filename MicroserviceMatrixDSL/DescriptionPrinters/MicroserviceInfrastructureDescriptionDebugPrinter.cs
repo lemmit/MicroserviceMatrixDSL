@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using MicroserviceMatrixDSL.Builder.Descriptions;
+using MicroserviceMatrixDSL.Descriptions;
 using MicroserviceMatrixDSL.FunctionalToolkit.Extensions;
 
 namespace MicroserviceMatrixDSL.DescriptionPrinters

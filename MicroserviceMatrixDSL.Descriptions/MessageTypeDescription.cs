@@ -1,5 +1,5 @@
 ﻿
-namespace MicroserviceMatrixDSL.Builder.Descriptions
+namespace MicroserviceMatrixDSL.Descriptions
 {
     public class MessageTypeDescription
     {

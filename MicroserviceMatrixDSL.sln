@@ -13,6 +13,16 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroserviceMatrixDSL.Build
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroserviceMatrixDSL.CodeTranspiler", "MicroserviceMatrixDSL.CodeTranspiler\MicroserviceMatrixDSL.CodeTranspiler.csproj", "{F437645B-674F-464D-8749-D85080B291C0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroserviceMatrixDSL.Descriptions", "MicroserviceMatrixDSL.Descriptions\MicroserviceMatrixDSL.Descriptions.csproj", "{A00B9901-0D0E-460D-B053-529A2CBB7E2B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroserviceMatrixDSL.DSLTests", "MicroserviceMatrixDSL.DSLTests\MicroserviceMatrixDSL.DSLTests.csproj", "{B9ECFE31-40DF-4C2D-AB71-AD8FEEB93204}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroserviceMatrixDSL.FunctionalToolkitTests", "MicroserviceMatrixDSL.FunctionalToolkitTests\MicroserviceMatrixDSL.FunctionalToolkitTests.csproj", "{254138A3-1CF3-4918-A177-7FD4113A15CE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroserviceMatrixDSL.CodeTranspilerTests", "MicroserviceMatrixDSL.CodeTranspilerTests\MicroserviceMatrixDSL.CodeTranspilerTests.csproj", "{EC072CE8-1BCA-4DA2-9D3E-E24573453F98}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroserviceMatrixDSL.BuilderTests", "MicroserviceMatrixDSL.BuilderTests\MicroserviceMatrixDSL.BuilderTests.csproj", "{7B1D586C-ED15-45CE-8D6D-F589990A65D4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +49,26 @@ Global
 		{F437645B-674F-464D-8749-D85080B291C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F437645B-674F-464D-8749-D85080B291C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F437645B-674F-464D-8749-D85080B291C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A00B9901-0D0E-460D-B053-529A2CBB7E2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A00B9901-0D0E-460D-B053-529A2CBB7E2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A00B9901-0D0E-460D-B053-529A2CBB7E2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A00B9901-0D0E-460D-B053-529A2CBB7E2B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B9ECFE31-40DF-4C2D-AB71-AD8FEEB93204}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9ECFE31-40DF-4C2D-AB71-AD8FEEB93204}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9ECFE31-40DF-4C2D-AB71-AD8FEEB93204}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9ECFE31-40DF-4C2D-AB71-AD8FEEB93204}.Release|Any CPU.Build.0 = Release|Any CPU
+		{254138A3-1CF3-4918-A177-7FD4113A15CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{254138A3-1CF3-4918-A177-7FD4113A15CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{254138A3-1CF3-4918-A177-7FD4113A15CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{254138A3-1CF3-4918-A177-7FD4113A15CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC072CE8-1BCA-4DA2-9D3E-E24573453F98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC072CE8-1BCA-4DA2-9D3E-E24573453F98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC072CE8-1BCA-4DA2-9D3E-E24573453F98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC072CE8-1BCA-4DA2-9D3E-E24573453F98}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B1D586C-ED15-45CE-8D6D-F589990A65D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B1D586C-ED15-45CE-8D6D-F589990A65D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B1D586C-ED15-45CE-8D6D-F589990A65D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B1D586C-ED15-45CE-8D6D-F589990A65D4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace MicroserviceMatrixDSL.Builder.Descriptions
+namespace MicroserviceMatrixDSL.Descriptions
 {
     public class MicroserviceInfrastructureDescription
     {

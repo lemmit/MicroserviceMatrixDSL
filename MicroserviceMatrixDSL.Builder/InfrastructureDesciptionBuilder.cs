@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using MicroserviceMatrixDSL.Builder.Descriptions;
 using MicroserviceMatrixDSL.Builder.Interfaces;
+using MicroserviceMatrixDSL.Descriptions;
 using MicroserviceMatrixDSL.FunctionalToolkit.Extensions;
 
 

@@ -1,5 +1,5 @@
-﻿using MicroserviceMatrixDSL.Builder.Descriptions;
-using MicroserviceMatrixDSL.Builder.Interfaces;
+﻿using MicroserviceMatrixDSL.Builder.Interfaces;
+using MicroserviceMatrixDSL.Descriptions;
 
 namespace MicroserviceMatrixDSL.Builder
 {

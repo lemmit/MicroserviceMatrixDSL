@@ -40,22 +40,33 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DeclareDefaultDsl.cs" />
-    <Compile Include="Interfaces\IDeclareDefaultDsl.cs" />
-    <Compile Include="Interfaces\IMessageNamespaceDeclaringDsl.cs" />
-    <Compile Include="Interfaces\IMessageTypeDescriptionBuilderDsl.cs" />
-    <Compile Include="Interfaces\IMicroserviceDescriptionBuilderDsl.cs" />
-    <Compile Include="Interfaces\IMicroserviceInfrastructureDsl.cs" />
-    <Compile Include="MessageNamespaceDeclaringDsl.cs" />
-    <Compile Include="MessageTypeDescriptionBuilderDsl.cs" />
-    <Compile Include="MicroserviceDescriptionBuilderDsl.cs" />
-    <Compile Include="MicroserviceInfrastructureDsl.cs" />
+    <Compile Include="DslStatesFactory.cs" />
+    <Compile Include="DslStates\BaseState.cs" />
+    <Compile Include="DslStates\DeclareDefaultsState.cs" />
+    <Compile Include="DslStates\DeclareNamespaceState.cs" />
+    <Compile Include="DslStates\MessageTypeDescribingState.cs" />
+    <Compile Include="DslStates\MicroserviceDescribingState.cs" />
+    <Compile Include="Interfaces\Factories\IBaseStateFactory.cs" />
+    <Compile Include="Interfaces\Factories\IDeclareDefaultsStateFactory.cs" />
+    <Compile Include="Interfaces\Factories\IDeclareNamespaceStateFactory.cs" />
+    <Compile Include="Interfaces\Factories\IMessageTypeDescribingStateFactory.cs" />
+    <Compile Include="Interfaces\Factories\IMicroserviceDescribingStateFactory.cs" />
+    <Compile Include="Interfaces\IDeclareDefaultsState.cs" />
+    <Compile Include="Interfaces\IDeclareNamespaceState.cs" />
+    <Compile Include="Interfaces\IMessageTypeDescribingState.cs" />
+    <Compile Include="Interfaces\IMicroserviceDescribingState.cs" />
+    <Compile Include="Interfaces\IBaseState.cs" />
+    <Compile Include="Interfaces\Factories\IStatesFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MicroserviceMatrixDSL.Builder\MicroserviceMatrixDSL.Builder.csproj">
       <Project>{d7fbd7bb-4f4f-4f0c-a662-ceaa8c4660c0}</Project>
       <Name>MicroserviceMatrixDSL.Builder</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MicroserviceMatrixDSL.Descriptions\MicroserviceMatrixDSL.Descriptions.csproj">
+      <Project>{a00b9901-0d0e-460d-b053-529a2cbb7e2b}</Project>
+      <Name>MicroserviceMatrixDSL.Descriptions</Name>
     </ProjectReference>
     <ProjectReference Include="..\MicroserviceMatrixDSL.FunctionalToolkit\MicroserviceMatrixDSL.FunctionalToolkit.csproj">
       <Project>{b73ea206-6b05-4c04-bd4d-4461b3ae4de9}</Project>

@@ -1,93 +1,92 @@
 ﻿using System;
 using MicroserviceMatrixDSL.Builder;
-using MicroserviceMatrixDSL.Builder.Descriptions;
 using MicroserviceMatrixDSL.Builder.Interfaces;
+using MicroserviceMatrixDSL.Descriptions;
 using MicroserviceMatrixDSL.DSL.Interfaces;
 
-namespace MicroserviceMatrixDSL.DSL
+namespace MicroserviceMatrixDSL.DSL.DslStates
 {
-    public class MicroserviceDescriptionBuilderDsl : IMicroserviceDescriptionBuilderDsl
+    public class MicroserviceDescribingState : IMicroserviceDescribingState
     {
         private readonly string _lastDeclaredMessageName = "";
-        private readonly IMicroserviceInfrastructureDsl _microserviceInfrastructureDsl;
+        private readonly IBaseState _baseState;
         private readonly IMicroserviceDescriptionBuilder _microserviceDescriptionBuilder;
 
-        public MicroserviceDescriptionBuilderDsl( 
+        public MicroserviceDescribingState( 
             string microserviceName,
             string defaultCommunicationMean,
-            string defaultMicroservieNamespace,
-            IMicroserviceInfrastructureDsl microserviceInfrastructureDsl
+            string defaultMicroserviceNamespace,
+            IBaseState baseState
             )
         {
-            _microserviceInfrastructureDsl = microserviceInfrastructureDsl;
-            
+            _baseState = baseState;
             _microserviceDescriptionBuilder =
                 new MicroserviceDescriptionBuilder(
                         microserviceName,
                         defaultCommunicationMean,
-                        defaultMicroservieNamespace
+                        defaultMicroserviceNamespace
                     );
         }
 
-        private MicroserviceDescriptionBuilderDsl(
-            IMicroserviceInfrastructureDsl microserviceInfrastructureDsl,
+        private MicroserviceDescribingState(
+            IBaseState baseState,
             IMicroserviceDescriptionBuilder microserviceDescriptionBuilder,
             string lastAddedMessageTypeName
             )
         {
-            _microserviceInfrastructureDsl = microserviceInfrastructureDsl;
+            _baseState = baseState;
             _microserviceDescriptionBuilder = microserviceDescriptionBuilder;
             _lastDeclaredMessageName = lastAddedMessageTypeName;
         }
 
 
-        public IMicroserviceDescriptionBuilderDsl Using(string communicationMean)
+        public IMicroserviceDescribingState Using(string communicationMean)
         {
-            return new MicroserviceDescriptionBuilderDsl(
-                    _microserviceInfrastructureDsl,
+            return new MicroserviceDescribingState(
+                    _baseState,
                     _microserviceDescriptionBuilder.WithCommunicationMean(communicationMean),
                     _lastDeclaredMessageName
                 );
         }
 
-        public IMicroserviceDescriptionBuilderDsl Sends(string sendsMessageTypeName)
+        public IMicroserviceDescribingState Sends(string sendsMessageTypeName)
         {
-            return new MicroserviceDescriptionBuilderDsl(
-                    _microserviceInfrastructureDsl,
+            return new MicroserviceDescribingState(
+                    _baseState,
                     _microserviceDescriptionBuilder.Sends(sendsMessageTypeName),
                     _lastDeclaredMessageName
                 );
         }
 
-        public IMicroserviceDescriptionBuilderDsl Receives(string receiveMessageTypeName)
+        public IMicroserviceDescribingState Receives(string receiveMessageTypeName)
         {
-            return new MicroserviceDescriptionBuilderDsl(
-                    _microserviceInfrastructureDsl,
+            return new MicroserviceDescribingState(
+                    _baseState,
                     _microserviceDescriptionBuilder.RespondsTo(receiveMessageTypeName),
                     receiveMessageTypeName
                 );
         }
 
-        public IMicroserviceDescriptionBuilderDsl And()
+        public IMicroserviceDescribingState And()
         {
             return this;
         }
 
-        public IMicroserviceDescriptionBuilderDsl Responds(string respondMessageTypeName)
+        public IMicroserviceDescribingState Responds(string respondMessageTypeName)
         {
             if (string.IsNullOrEmpty(_lastDeclaredMessageName))
                 throw new InvalidOperationException("Microservice first has to receive something to respond!");
 
-            return new MicroserviceDescriptionBuilderDsl(
-                    _microserviceInfrastructureDsl,
+            return new MicroserviceDescribingState(
+                    _baseState,
                     _microserviceDescriptionBuilder.RespondsToWith(_lastDeclaredMessageName, respondMessageTypeName),
                     _lastDeclaredMessageName
                 );
         }
 
-        public IMicroserviceDescriptionBuilderDsl Microservice(string microserviceName)
+        public IMicroserviceDescribingState Microservice(string microserviceName)
         {
-            return _microserviceInfrastructureDsl
+            return _baseState
                     .WithMicroservice(Create())
                     .Microservice(microserviceName);
         }
@@ -97,35 +96,35 @@ namespace MicroserviceMatrixDSL.DSL
             return _microserviceDescriptionBuilder.Create();
         }
 
-        public IMicroserviceDescriptionBuilderDsl Like(string microserviceMixin)
+        public IMicroserviceDescribingState Like(string microserviceMixin)
         {
-            return new MicroserviceDescriptionBuilderDsl(
-                    _microserviceInfrastructureDsl,
+            return new MicroserviceDescribingState(
+                    _baseState,
                     _microserviceDescriptionBuilder.Extends(microserviceMixin),
                     _lastDeclaredMessageName
                 );
         }
 
-        public IMicroserviceDescriptionBuilderDsl With(string respondMessageTypeName)
+        public IMicroserviceDescribingState With(string respondMessageTypeName)
         {
             return Responds(respondMessageTypeName);
         }
 
-        public IMicroserviceDescriptionBuilderDsl Responds()
+        public IMicroserviceDescribingState Responds()
         {
             if (string.IsNullOrEmpty(_lastDeclaredMessageName))
                 throw new InvalidOperationException("Microservice first has to receive something to respond!");
             return this;
         }
 
-        public IDeclareDefaultDsl Default()
+        public IDeclareDefaultsState Default()
         {
             return Flush().Default();
         }
 
-        public IMicroserviceInfrastructureDsl Flush()
+        public IBaseState Flush()
         {
-            return _microserviceInfrastructureDsl
+            return _baseState
                     .WithMicroservice(Create());
         }
     }

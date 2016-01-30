@@ -1,15 +1,19 @@
 ﻿using System;
 using System.Text;
-using MicroserviceMatrixDSL.Builder.Descriptions;
+using MicroserviceMatrixDSL.Descriptions;
 using MicroserviceMatrixDSL.Template;
 
 namespace MicroserviceMatrixDSL.DescriptionPrinters
 {
-    public class MicroserviceTemplatePrinter : IMicroserviceInfrastructureDescriptionPrinter
+    public class MicroserviceInfrastructureDescriptionToCSharpCodePrinter : IMicroserviceInfrastructureDescriptionPrinter
     {
         public string Print(MicroserviceInfrastructureDescription microserviceInfrastructureDescription)
         {
-            var str = new MicroservicesGenerator(microserviceInfrastructureDescription).TransformText();
+            var str = new MicroservicesGenerator(
+                new MicroserviceInfrastructureDescriptionExtender(
+                        microserviceInfrastructureDescription
+                    )
+                ).TransformText();
             var sb = new StringBuilder();
             sb.AppendLine(
                              $"/*" 
