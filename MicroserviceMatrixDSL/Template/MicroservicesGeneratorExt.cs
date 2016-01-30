@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using MicroserviceMatrixDSL.Descriptions;
 
@@ -18,6 +17,15 @@ namespace MicroserviceMatrixDSL.Template
             _infrastructureDescriptionExtender = infrastructureDescriptionExtender;
         }
 
+        public IDictionary<string, string> NamespaceByMessageTypeName =>
+            _infrastructureDescriptionExtender.NamespaceByMessageTypeName;
+
+        public IEnumerable<MicroserviceDescription> Microservices
+            => _infrastructureDescriptionExtender.Microservices;
+
+        public IEnumerable<IGrouping<string, MicroserviceDescription>> MicroservicesByNamespace
+            => _infrastructureDescriptionExtender.MicroservicesByNamespace;
+
         public IDictionary<string, string> ReqResponseMessages(string microserviceName)
         {
             return _infrastructureDescriptionExtender.ReqResponseMessages(microserviceName);
@@ -33,16 +41,7 @@ namespace MicroserviceMatrixDSL.Template
             return _infrastructureDescriptionExtender.MessagesSendedByMicroserviceWithMixins(microserviceName);
         }
 
-        public IDictionary<string, string> NamespaceByMessageTypeName =>
-                _infrastructureDescriptionExtender.NamespaceByMessageTypeName;
 
-        public IEnumerable<MicroserviceDescription> Microservices
-            => _infrastructureDescriptionExtender.Microservices;
-
-        public IEnumerable<IGrouping<string, MicroserviceDescription>> MicroservicesByNamespace 
-            => _infrastructureDescriptionExtender.MicroservicesByNamespace;
-
-        
         public string MessageTypeNameWithNamespace(string messageTypeName)
         {
             return _infrastructureDescriptionExtender.MessageTypeNameWithNamespace(messageTypeName);

@@ -16,7 +16,7 @@ namespace MicroserviceMatrixDSL
                 typeof (MessageTypeDescribingState).GetPublicMethodsWithNumberOfParams(),
                 typeof (MicroserviceDescribingState).GetPublicMethodsWithNumberOfParams(),
                 typeof (BaseState).GetPublicMethodsWithNumberOfParams(),
-                typeof (DeclareDefaultsState).GetPublicMethodsWithNumberOfParams(),
+                typeof (DeclareDefaultsState).GetPublicMethodsWithNumberOfParams()
             };
 
             var keywordList = lists

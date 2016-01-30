@@ -3,7 +3,7 @@
     public interface IBaseStateFactory
     {
         IBaseState CreateBaseState(string defaultMessageNamespace,
-                          string defaultCommunicationMean,
-                          string defaultMicroservieNamespace);
+            string defaultCommunicationMean,
+            string defaultMicroservieNamespace);
     }
 }

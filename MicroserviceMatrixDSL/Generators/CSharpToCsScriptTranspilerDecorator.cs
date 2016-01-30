@@ -4,13 +4,13 @@ namespace MicroserviceMatrixDSL.Generators
 {
     public class CSharpToCsScriptTranspilerDecorator : ITranspiler
     {
-        private readonly ITranspiler _transpiler;
+        private readonly string _defaultCommuniationMean;
 
 
         private readonly string _defaultMessagesNamespace;
-        private readonly string _defaultCommuniationMean;
         private readonly string _defaultMicroservicesNamespace;
-        
+        private readonly ITranspiler _transpiler;
+
         public CSharpToCsScriptTranspilerDecorator(ITranspiler transpiler,
             string defaultMessagesNamespace,
             string defaultCommunicationMean,
@@ -24,9 +24,14 @@ namespace MicroserviceMatrixDSL.Generators
             _transpiler = transpiler;
         }
 
+        public string GeneratedCode => CodeBefore()
+                                       + _transpiler.GeneratedCode
+                                       + CodeAfter();
+
         private string GetParams()
         {
-            return $"\"{_defaultMessagesNamespace}\", \"{_defaultCommuniationMean}\", \"{_defaultMicroservicesNamespace}\" ";
+            return
+                $"\"{_defaultMessagesNamespace}\", \"{_defaultCommuniationMean}\", \"{_defaultMicroservicesNamespace}\" ";
         }
 
         public virtual string CodeBefore()
@@ -49,9 +54,5 @@ namespace MicroserviceMatrixDSL.Generators
                 }
             ";
         }
-
-        public string GeneratedCode => CodeBefore()
-                        + _transpiler.GeneratedCode
-                        + CodeAfter();
     }
 }

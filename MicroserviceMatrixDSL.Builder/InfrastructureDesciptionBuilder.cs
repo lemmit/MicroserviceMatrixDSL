@@ -4,23 +4,19 @@ using MicroserviceMatrixDSL.Builder.Interfaces;
 using MicroserviceMatrixDSL.Descriptions;
 using MicroserviceMatrixDSL.FunctionalToolkit.Extensions;
 
-
 namespace MicroserviceMatrixDSL.Builder
 {
     public class InfrastructureDesciptionBuilder : IInfrastructureDesciptionBuilder
     {
-        public string MessagesDefaultNamespace { get; }
-        public string MicroserviceDefaultNamespace { get; }
-        public string DefaultCommunicationMean { get; }
-
         private readonly IReadOnlyCollection<MessageTypeDescription> _messages = new List<MessageTypeDescription>();
-        private readonly IReadOnlyCollection<MicroserviceDescription> _microservices = 
+
+        private readonly IReadOnlyCollection<MicroserviceDescription> _microservices =
             new List<MicroserviceDescription>();
 
         public InfrastructureDesciptionBuilder(
-                string messagesDefaultNamespace,
-                string microserviceDefaultNamespace,
-                string defaultCommunicationMean
+            string messagesDefaultNamespace,
+            string microserviceDefaultNamespace,
+            string defaultCommunicationMean
             )
         {
             MessagesDefaultNamespace = messagesDefaultNamespace;
@@ -43,12 +39,16 @@ namespace MicroserviceMatrixDSL.Builder
             _microservices = microservicesDescriptions.ToList();
         }
 
+        public string MessagesDefaultNamespace { get; }
+        public string MicroserviceDefaultNamespace { get; }
+        public string DefaultCommunicationMean { get; }
+
         public MicroserviceInfrastructureDescription Create()
         {
             return new MicroserviceInfrastructureDescription(
                 _messages,
                 _microservices
-            );
+                );
         }
 
         public IInfrastructureDesciptionBuilder WithDefaultMessageNamespace(string messagesDefaultNamespace)

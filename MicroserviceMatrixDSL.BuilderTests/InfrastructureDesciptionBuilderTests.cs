@@ -1,59 +1,54 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using MicroserviceMatrixDSL.Builder;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace MicroserviceMatrixDSL.Builder.Tests
 {
-    [TestClass()]
+    [TestClass]
     public class InfrastructureDesciptionBuilderTests
     {
-        [TestMethod()]
+        [TestMethod]
         public void InfrastructureDesciptionBuilderTest()
         {
             throw new NotImplementedException();
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void InfrastructureDesciptionBuilderTest1()
         {
             throw new NotImplementedException();
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void CreateTest()
         {
             throw new NotImplementedException();
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void WithDefaultMessageNamespaceTest()
         {
             throw new NotImplementedException();
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void WithDefaultCommunicationMeanTest()
         {
             throw new NotImplementedException();
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void WithDefaultMicroserviceNamespaceTest()
         {
             throw new NotImplementedException();
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void WithDeclaredMessageTest()
         {
             throw new NotImplementedException();
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void WithMicroserviceTest()
         {
             throw new NotImplementedException();

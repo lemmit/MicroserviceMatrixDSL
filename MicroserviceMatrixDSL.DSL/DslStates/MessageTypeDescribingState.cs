@@ -14,47 +14,42 @@ namespace MicroserviceMatrixDSL.DSL.DslStates
             IBaseState baseState)
         {
             _baseState = baseState;
-             _messageTypeDescriptionBuilder = new MessageTypeDescriptionBuilder()
+            _messageTypeDescriptionBuilder = new MessageTypeDescriptionBuilder()
                 .WithNamespace(baseState.MessagesDefaultNamespace);
         }
 
         public MessageTypeDescribingState(
-            IBaseState baseState, 
+            IBaseState baseState,
             IMessageTypeDescriptionBuilder messageTypeDescriptionBuilder
             )
         {
             _baseState = baseState;
             _messageTypeDescriptionBuilder = messageTypeDescriptionBuilder;
         }
-        
+
         public IMessageTypeDescribingState Namespace(string messageTypeNamespace)
         {
             return new MessageTypeDescribingState(
-                    _baseState,
-                    _messageTypeDescriptionBuilder
-                        .WithNamespace(messageTypeNamespace)
+                _baseState,
+                _messageTypeDescriptionBuilder
+                    .WithNamespace(messageTypeNamespace)
                 );
         }
 
         public IMessageTypeDescribingState Class(string declaredMessageType)
         {
             return new MessageTypeDescribingState(
-                    _baseState,
-                    _messageTypeDescriptionBuilder
-                        .WithTypeName(declaredMessageType)
+                _baseState,
+                _messageTypeDescriptionBuilder
+                    .WithTypeName(declaredMessageType)
                 );
         }
 
         public IMessageTypeDescribingState Message()
         {
             return _baseState
-                    .WithDeclaredMessage(Create())
-                    .Message();
-        }
-
-        private MessageTypeDescription Create()
-        {
-            return _messageTypeDescriptionBuilder.Create();
+                .WithDeclaredMessage(Create())
+                .Message();
         }
 
         public IMessageTypeDescribingState Using()
@@ -65,8 +60,13 @@ namespace MicroserviceMatrixDSL.DSL.DslStates
         public IDeclareDefaultsState Default()
         {
             return _baseState
-                   .WithDeclaredMessage(Create())
-                   .Default();
+                .WithDeclaredMessage(Create())
+                .Default();
+        }
+
+        private MessageTypeDescription Create()
+        {
+            return _messageTypeDescriptionBuilder.Create();
         }
     }
 }

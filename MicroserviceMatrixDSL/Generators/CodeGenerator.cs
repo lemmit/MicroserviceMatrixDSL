@@ -8,14 +8,12 @@ using MicroserviceMatrixDSL.Generators.Interfaces;
 
 namespace MicroserviceMatrixDSL.Generators
 {
-  public class CodeGenerator : ICodeGenerator
+    public class CodeGenerator : ICodeGenerator
     {
-        private readonly IMicroserviceInfrastructureDescriptionPrinter _printer;
-        private readonly ITranspiler _transpiler;
-
-        public string GeneratedCode => _generatedCode.Value;
         private readonly Lazy<string> _generatedCode;
         private readonly string[] _input;
+        private readonly IMicroserviceInfrastructureDescriptionPrinter _printer;
+        private readonly ITranspiler _transpiler;
 
         public CodeGenerator(
             IMicroserviceInfrastructureDescriptionPrinter printer,
@@ -29,6 +27,8 @@ namespace MicroserviceMatrixDSL.Generators
             _generatedCode = new Lazy<string>(GenerateCode);
         }
 
+        public string GeneratedCode => _generatedCode.Value;
+
         private string GenerateCode()
         {
             var genCode = _transpiler.GeneratedCode;
@@ -37,7 +37,7 @@ namespace MicroserviceMatrixDSL.Generators
                 CSScript.EvaluatorConfig.Engine = EvaluatorEngine.CodeDom;
                 var generate = CSScript.Evaluator
                     .CreateDelegate(genCode);
-                var description = (MicroserviceInfrastructureDescription)generate();
+                var description = (MicroserviceInfrastructureDescription) generate();
                 return _printer.Print(description);
             }
             catch (Exception e)

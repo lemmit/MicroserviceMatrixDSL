@@ -7,248 +7,263 @@
 //     the code is regenerated.
 // </auto-generated>
 // ------------------------------------------------------------------------------
+
+using System;
+using System.CodeDom.Compiler;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Text;
+
 namespace MicroserviceMatrixDSL.Template
 {
-    using System;
-    
     /// <summary>
-    /// Class to produce the template output
+    ///     Class to produce the template output
     /// </summary>
-    
-    #line 1 "C:\Users\Michal\documents\visual studio 2015\Projects\MicroserviceMatrixDSL\MicroserviceMatrixDSL\Template\MicroservicesGenerator.tt"
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "14.0.0.0")]
+#line 1
+    "C:\Users\Michal\documents\visual studio 2015\Projects\MicroserviceMatrixDSL\MicroserviceMatrixDSL\Template\MicroservicesGenerator.tt"
+    [GeneratedCode("Microsoft.VisualStudio.TextTemplating", "14.0.0.0")]
     public partial class MicroservicesGenerator : MicroservicesGeneratorBase
     {
-#line hidden
         /// <summary>
-        /// Create the template output
+        ///     Create the template output
         /// </summary>
         public virtual string TransformText()
         {
-            this.Write("\r\n");
-            
-            #line 4 "C:\Users\Michal\documents\visual studio 2015\Projects\MicroserviceMatrixDSL\MicroserviceMatrixDSL\Template\MicroservicesGenerator.tt"
- foreach(var microservicesByNamespace in MicroservicesByNamespace) { 
-            
-            #line default
-            #line hidden
-            this.Write("namespace ");
-            
-            #line 5 "C:\Users\Michal\documents\visual studio 2015\Projects\MicroserviceMatrixDSL\MicroserviceMatrixDSL\Template\MicroservicesGenerator.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(microservicesByNamespace.Key));
-            
-            #line default
-            #line hidden
-            this.Write(" {\r\n\r\n");
-            
-            #line 7 "C:\Users\Michal\documents\visual studio 2015\Projects\MicroserviceMatrixDSL\MicroserviceMatrixDSL\Template\MicroservicesGenerator.tt"
- foreach(var microservice in microservicesByNamespace) { 
-	var reqRespMessages = ReqResponseMessagesWithMixins(microservice.MicroserviceName);
+            Write("\r\n");
 
-            
-            #line default
-            #line hidden
-            this.Write("\tpublic abstract class Abstract");
-            
-            #line 10 "C:\Users\Michal\documents\visual studio 2015\Projects\MicroserviceMatrixDSL\MicroserviceMatrixDSL\Template\MicroservicesGenerator.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(microservice.MicroserviceName));
-            
-            #line default
-            #line hidden
-            this.Write("Service : ");
-            
-            #line 10 "C:\Users\Michal\documents\visual studio 2015\Projects\MicroserviceMatrixDSL\MicroserviceMatrixDSL\Template\MicroservicesGenerator.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(_inheritedFrom));
-            
-            #line default
-            #line hidden
-            this.Write(" {\r\n");
-            
-            #line 11 "C:\Users\Michal\documents\visual studio 2015\Projects\MicroserviceMatrixDSL\MicroserviceMatrixDSL\Template\MicroservicesGenerator.tt"
- foreach(var reqRespMessage in reqRespMessages){ 
-            
-            #line default
-            #line hidden
-            this.Write("\t\tprotected ");
-            
-            #line 12 "C:\Users\Michal\documents\visual studio 2015\Projects\MicroserviceMatrixDSL\MicroserviceMatrixDSL\Template\MicroservicesGenerator.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(MessageTypeNameWithNamespace(reqRespMessage.Value)));
-            
-            #line default
-            #line hidden
-            this.Write(" ServiceMethod(");
-            
-            #line 12 "C:\Users\Michal\documents\visual studio 2015\Projects\MicroserviceMatrixDSL\MicroserviceMatrixDSL\Template\MicroservicesGenerator.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(MessageTypeNameWithNamespace(reqRespMessage.Key)));
-            
-            #line default
-            #line hidden
-            this.Write(" request){\r\n\t\t\treturn on");
-            
-            #line 13 "C:\Users\Michal\documents\visual studio 2015\Projects\MicroserviceMatrixDSL\MicroserviceMatrixDSL\Template\MicroservicesGenerator.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(reqRespMessage.Key));
-            
-            #line default
-            #line hidden
-            this.Write("Request();\r\n\t\t}\r\n\t\tprotected abstract ");
-            
-            #line 15 "C:\Users\Michal\documents\visual studio 2015\Projects\MicroserviceMatrixDSL\MicroserviceMatrixDSL\Template\MicroservicesGenerator.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(MessageTypeNameWithNamespace(reqRespMessage.Value)));
-            
-            #line default
-            #line hidden
-            this.Write(" on");
-            
-            #line 15 "C:\Users\Michal\documents\visual studio 2015\Projects\MicroserviceMatrixDSL\MicroserviceMatrixDSL\Template\MicroservicesGenerator.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(reqRespMessage.Key));
-            
-            #line default
-            #line hidden
-            this.Write("Request(");
-            
-            #line 15 "C:\Users\Michal\documents\visual studio 2015\Projects\MicroserviceMatrixDSL\MicroserviceMatrixDSL\Template\MicroservicesGenerator.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(MessageTypeNameWithNamespace(reqRespMessage.Key)));
-            
-            #line default
-            #line hidden
-            this.Write(" request);\r\n ");
-            
-            #line 16 "C:\Users\Michal\documents\visual studio 2015\Projects\MicroserviceMatrixDSL\MicroserviceMatrixDSL\Template\MicroservicesGenerator.tt"
- } 
-            
-            #line default
-            #line hidden
-            this.Write("\t\r\n");
-            
-            #line 17 "C:\Users\Michal\documents\visual studio 2015\Projects\MicroserviceMatrixDSL\MicroserviceMatrixDSL\Template\MicroservicesGenerator.tt"
- foreach(var sendsMessage in MessagesSendedByMicroserviceWithMixins(microservice.MicroserviceName)){
-            
-            #line default
-            #line hidden
-            this.Write(" \r\n\t\tprotected void Send(");
-            
-            #line 18 "C:\Users\Michal\documents\visual studio 2015\Projects\MicroserviceMatrixDSL\MicroserviceMatrixDSL\Template\MicroservicesGenerator.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(MessageTypeNameWithNamespace(sendsMessage)));
-            
-            #line default
-            #line hidden
-            this.Write(" message){\r\n\t\t\t//...\r\n\t\t}\r\n");
-            
-            #line 21 "C:\Users\Michal\documents\visual studio 2015\Projects\MicroserviceMatrixDSL\MicroserviceMatrixDSL\Template\MicroservicesGenerator.tt"
-} 
-            
-            #line default
-            #line hidden
-            this.Write("\t}\r\n");
-            
-            #line 23 "C:\Users\Michal\documents\visual studio 2015\Projects\MicroserviceMatrixDSL\MicroserviceMatrixDSL\Template\MicroservicesGenerator.tt"
-}
-            
-            #line default
-            #line hidden
-            this.Write("}\r\n");
-            
-            #line 25 "C:\Users\Michal\documents\visual studio 2015\Projects\MicroserviceMatrixDSL\MicroserviceMatrixDSL\Template\MicroservicesGenerator.tt"
-}
-            
-            #line default
-            #line hidden
-            return this.GenerationEnvironment.ToString();
+#line 4
+    "C:\Users\Michal\documents\visual studio 2015\Projects\MicroserviceMatrixDSL\MicroserviceMatrixDSL\Template\MicroservicesGenerator.tt"
+            foreach (var microservicesByNamespace in MicroservicesByNamespace)
+            {
+#line default
+#line hidden
+                Write("namespace ");
+
+#line 5
+    "C:\Users\Michal\documents\visual studio 2015\Projects\MicroserviceMatrixDSL\MicroserviceMatrixDSL\Template\MicroservicesGenerator.tt"
+                Write(ToStringHelper.ToStringWithCulture(microservicesByNamespace.Key));
+
+#line default
+#line hidden
+                Write(" {\r\n\r\n");
+
+#line 7
+    "C:\Users\Michal\documents\visual studio 2015\Projects\MicroserviceMatrixDSL\MicroserviceMatrixDSL\Template\MicroservicesGenerator.tt"
+                foreach (var microservice in microservicesByNamespace)
+                {
+                    var reqRespMessages = ReqResponseMessagesWithMixins(microservice.MicroserviceName);
+
+
+#line default
+#line hidden
+                    Write("\tpublic abstract class Abstract");
+
+#line 10
+    "C:\Users\Michal\documents\visual studio 2015\Projects\MicroserviceMatrixDSL\MicroserviceMatrixDSL\Template\MicroservicesGenerator.tt"
+                    Write(ToStringHelper.ToStringWithCulture(microservice.MicroserviceName));
+
+#line default
+#line hidden
+                    Write("Service : ");
+
+#line 10
+    "C:\Users\Michal\documents\visual studio 2015\Projects\MicroserviceMatrixDSL\MicroserviceMatrixDSL\Template\MicroservicesGenerator.tt"
+                    Write(ToStringHelper.ToStringWithCulture(_inheritedFrom));
+
+#line default
+#line hidden
+                    Write(" {\r\n");
+
+#line 11
+    "C:\Users\Michal\documents\visual studio 2015\Projects\MicroserviceMatrixDSL\MicroserviceMatrixDSL\Template\MicroservicesGenerator.tt"
+                    foreach (var reqRespMessage in reqRespMessages)
+                    {
+#line default
+#line hidden
+                        Write("\t\tprotected ");
+
+#line 12
+    "C:\Users\Michal\documents\visual studio 2015\Projects\MicroserviceMatrixDSL\MicroserviceMatrixDSL\Template\MicroservicesGenerator.tt"
+                        Write(ToStringHelper.ToStringWithCulture(MessageTypeNameWithNamespace(reqRespMessage.Value)));
+
+#line default
+#line hidden
+                        Write(" ServiceMethod(");
+
+#line 12
+    "C:\Users\Michal\documents\visual studio 2015\Projects\MicroserviceMatrixDSL\MicroserviceMatrixDSL\Template\MicroservicesGenerator.tt"
+                        Write(ToStringHelper.ToStringWithCulture(MessageTypeNameWithNamespace(reqRespMessage.Key)));
+
+#line default
+#line hidden
+                        Write(" request){\r\n\t\t\treturn on");
+
+#line 13
+    "C:\Users\Michal\documents\visual studio 2015\Projects\MicroserviceMatrixDSL\MicroserviceMatrixDSL\Template\MicroservicesGenerator.tt"
+                        Write(ToStringHelper.ToStringWithCulture(reqRespMessage.Key));
+
+#line default
+#line hidden
+                        Write("Request();\r\n\t\t}\r\n\t\tprotected abstract ");
+
+#line 15
+    "C:\Users\Michal\documents\visual studio 2015\Projects\MicroserviceMatrixDSL\MicroserviceMatrixDSL\Template\MicroservicesGenerator.tt"
+                        Write(ToStringHelper.ToStringWithCulture(MessageTypeNameWithNamespace(reqRespMessage.Value)));
+
+#line default
+#line hidden
+                        Write(" on");
+
+#line 15
+    "C:\Users\Michal\documents\visual studio 2015\Projects\MicroserviceMatrixDSL\MicroserviceMatrixDSL\Template\MicroservicesGenerator.tt"
+                        Write(ToStringHelper.ToStringWithCulture(reqRespMessage.Key));
+
+#line default
+#line hidden
+                        Write("Request(");
+
+#line 15
+    "C:\Users\Michal\documents\visual studio 2015\Projects\MicroserviceMatrixDSL\MicroserviceMatrixDSL\Template\MicroservicesGenerator.tt"
+                        Write(ToStringHelper.ToStringWithCulture(MessageTypeNameWithNamespace(reqRespMessage.Key)));
+
+#line default
+#line hidden
+                        Write(" request);\r\n ");
+
+#line 16
+    "C:\Users\Michal\documents\visual studio 2015\Projects\MicroserviceMatrixDSL\MicroserviceMatrixDSL\Template\MicroservicesGenerator.tt"
+                    }
+
+#line default
+#line hidden
+                    Write("\t\r\n");
+
+#line 17
+    "C:\Users\Michal\documents\visual studio 2015\Projects\MicroserviceMatrixDSL\MicroserviceMatrixDSL\Template\MicroservicesGenerator.tt"
+                    foreach (var sendsMessage in MessagesSendedByMicroserviceWithMixins(microservice.MicroserviceName))
+                    {
+#line default
+#line hidden
+                        Write(" \r\n\t\tprotected void Send(");
+
+#line 18
+    "C:\Users\Michal\documents\visual studio 2015\Projects\MicroserviceMatrixDSL\MicroserviceMatrixDSL\Template\MicroservicesGenerator.tt"
+                        Write(ToStringHelper.ToStringWithCulture(MessageTypeNameWithNamespace(sendsMessage)));
+
+#line default
+#line hidden
+                        Write(" message){\r\n\t\t\t//...\r\n\t\t}\r\n");
+
+#line 21
+    "C:\Users\Michal\documents\visual studio 2015\Projects\MicroserviceMatrixDSL\MicroserviceMatrixDSL\Template\MicroservicesGenerator.tt"
+                    }
+
+#line default
+#line hidden
+                    Write("\t}\r\n");
+
+#line 23
+    "C:\Users\Michal\documents\visual studio 2015\Projects\MicroserviceMatrixDSL\MicroserviceMatrixDSL\Template\MicroservicesGenerator.tt"
+                }
+
+#line default
+#line hidden
+                Write("}\r\n");
+
+#line 25
+    "C:\Users\Michal\documents\visual studio 2015\Projects\MicroserviceMatrixDSL\MicroserviceMatrixDSL\Template\MicroservicesGenerator.tt"
+            }
+
+#line default
+#line hidden
+            return GenerationEnvironment.ToString();
         }
     }
-    
-    #line default
-    #line hidden
+
+#line default
+#line hidden
+
     #region Base class
+
     /// <summary>
-    /// Base class for this transformation
+    ///     Base class for this transformation
     /// </summary>
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "14.0.0.0")]
+    [GeneratedCode("Microsoft.VisualStudio.TextTemplating", "14.0.0.0")]
     public class MicroservicesGeneratorBase
     {
         #region Fields
-        private global::System.Text.StringBuilder generationEnvironmentField;
-        private global::System.CodeDom.Compiler.CompilerErrorCollection errorsField;
-        private global::System.Collections.Generic.List<int> indentLengthsField;
-        private string currentIndentField = "";
+
+        private StringBuilder generationEnvironmentField;
+        private CompilerErrorCollection errorsField;
+        private List<int> indentLengthsField;
         private bool endsWithNewline;
-        private global::System.Collections.Generic.IDictionary<string, object> sessionField;
+
         #endregion
+
         #region Properties
+
         /// <summary>
-        /// The string builder that generation-time code is using to assemble generated output
+        ///     The string builder that generation-time code is using to assemble generated output
         /// </summary>
-        protected System.Text.StringBuilder GenerationEnvironment
+        protected StringBuilder GenerationEnvironment
         {
             get
             {
-                if ((this.generationEnvironmentField == null))
+                if (generationEnvironmentField == null)
                 {
-                    this.generationEnvironmentField = new global::System.Text.StringBuilder();
+                    generationEnvironmentField = new StringBuilder();
                 }
-                return this.generationEnvironmentField;
+                return generationEnvironmentField;
             }
-            set
-            {
-                this.generationEnvironmentField = value;
-            }
+            set { generationEnvironmentField = value; }
         }
+
         /// <summary>
-        /// The error collection for the generation process
+        ///     The error collection for the generation process
         /// </summary>
-        public System.CodeDom.Compiler.CompilerErrorCollection Errors
+        public CompilerErrorCollection Errors
         {
             get
             {
-                if ((this.errorsField == null))
+                if (errorsField == null)
                 {
-                    this.errorsField = new global::System.CodeDom.Compiler.CompilerErrorCollection();
+                    errorsField = new CompilerErrorCollection();
                 }
-                return this.errorsField;
+                return errorsField;
             }
         }
+
         /// <summary>
-        /// A list of the lengths of each indent that was added with PushIndent
+        ///     A list of the lengths of each indent that was added with PushIndent
         /// </summary>
-        private System.Collections.Generic.List<int> indentLengths
+        private List<int> indentLengths
         {
             get
             {
-                if ((this.indentLengthsField == null))
+                if (indentLengthsField == null)
                 {
-                    this.indentLengthsField = new global::System.Collections.Generic.List<int>();
+                    indentLengthsField = new List<int>();
                 }
-                return this.indentLengthsField;
+                return indentLengthsField;
             }
         }
+
         /// <summary>
-        /// Gets the current indent we use when adding lines to the output
+        ///     Gets the current indent we use when adding lines to the output
         /// </summary>
-        public string CurrentIndent
-        {
-            get
-            {
-                return this.currentIndentField;
-            }
-        }
+        public string CurrentIndent { get; private set; } = "";
+
         /// <summary>
-        /// Current transformation session
+        ///     Current transformation session
         /// </summary>
-        public virtual global::System.Collections.Generic.IDictionary<string, object> Session
-        {
-            get
-            {
-                return this.sessionField;
-            }
-            set
-            {
-                this.sessionField = value;
-            }
-        }
+        public virtual IDictionary<string, object> Session { get; set; }
+
         #endregion
+
         #region Transform-time helpers
+
         /// <summary>
-        /// Write text directly into the generated output
+        ///     Write text directly into the generated output
         /// </summary>
         public void Write(string textToAppend)
         {
@@ -258,177 +273,184 @@ namespace MicroserviceMatrixDSL.Template
             }
             // If we're starting off, or if the previous text ended with a newline,
             // we have to append the current indent first.
-            if (((this.GenerationEnvironment.Length == 0) 
-                        || this.endsWithNewline))
+            if ((GenerationEnvironment.Length == 0)
+                || endsWithNewline)
             {
-                this.GenerationEnvironment.Append(this.currentIndentField);
-                this.endsWithNewline = false;
+                GenerationEnvironment.Append(CurrentIndent);
+                endsWithNewline = false;
             }
             // Check if the current text ends with a newline
-            if (textToAppend.EndsWith(global::System.Environment.NewLine, global::System.StringComparison.CurrentCulture))
+            if (textToAppend.EndsWith(Environment.NewLine, StringComparison.CurrentCulture))
             {
-                this.endsWithNewline = true;
+                endsWithNewline = true;
             }
             // This is an optimization. If the current indent is "", then we don't have to do any
             // of the more complex stuff further down.
-            if ((this.currentIndentField.Length == 0))
+            if (CurrentIndent.Length == 0)
             {
-                this.GenerationEnvironment.Append(textToAppend);
+                GenerationEnvironment.Append(textToAppend);
                 return;
             }
             // Everywhere there is a newline in the text, add an indent after it
-            textToAppend = textToAppend.Replace(global::System.Environment.NewLine, (global::System.Environment.NewLine + this.currentIndentField));
+            textToAppend = textToAppend.Replace(Environment.NewLine, Environment.NewLine + CurrentIndent);
             // If the text ends with a newline, then we should strip off the indent added at the very end
             // because the appropriate indent will be added when the next time Write() is called
-            if (this.endsWithNewline)
+            if (endsWithNewline)
             {
-                this.GenerationEnvironment.Append(textToAppend, 0, (textToAppend.Length - this.currentIndentField.Length));
+                GenerationEnvironment.Append(textToAppend, 0, textToAppend.Length - CurrentIndent.Length);
             }
             else
             {
-                this.GenerationEnvironment.Append(textToAppend);
+                GenerationEnvironment.Append(textToAppend);
             }
         }
+
         /// <summary>
-        /// Write text directly into the generated output
+        ///     Write text directly into the generated output
         /// </summary>
         public void WriteLine(string textToAppend)
         {
-            this.Write(textToAppend);
-            this.GenerationEnvironment.AppendLine();
-            this.endsWithNewline = true;
+            Write(textToAppend);
+            GenerationEnvironment.AppendLine();
+            endsWithNewline = true;
         }
+
         /// <summary>
-        /// Write formatted text directly into the generated output
+        ///     Write formatted text directly into the generated output
         /// </summary>
         public void Write(string format, params object[] args)
         {
-            this.Write(string.Format(global::System.Globalization.CultureInfo.CurrentCulture, format, args));
+            Write(string.Format(CultureInfo.CurrentCulture, format, args));
         }
+
         /// <summary>
-        /// Write formatted text directly into the generated output
+        ///     Write formatted text directly into the generated output
         /// </summary>
         public void WriteLine(string format, params object[] args)
         {
-            this.WriteLine(string.Format(global::System.Globalization.CultureInfo.CurrentCulture, format, args));
+            WriteLine(string.Format(CultureInfo.CurrentCulture, format, args));
         }
+
         /// <summary>
-        /// Raise an error
+        ///     Raise an error
         /// </summary>
         public void Error(string message)
         {
-            System.CodeDom.Compiler.CompilerError error = new global::System.CodeDom.Compiler.CompilerError();
+            var error = new CompilerError();
             error.ErrorText = message;
-            this.Errors.Add(error);
+            Errors.Add(error);
         }
+
         /// <summary>
-        /// Raise a warning
+        ///     Raise a warning
         /// </summary>
         public void Warning(string message)
         {
-            System.CodeDom.Compiler.CompilerError error = new global::System.CodeDom.Compiler.CompilerError();
+            var error = new CompilerError();
             error.ErrorText = message;
             error.IsWarning = true;
-            this.Errors.Add(error);
+            Errors.Add(error);
         }
+
         /// <summary>
-        /// Increase the indent
+        ///     Increase the indent
         /// </summary>
         public void PushIndent(string indent)
         {
-            if ((indent == null))
+            if (indent == null)
             {
-                throw new global::System.ArgumentNullException("indent");
+                throw new ArgumentNullException("indent");
             }
-            this.currentIndentField = (this.currentIndentField + indent);
-            this.indentLengths.Add(indent.Length);
+            CurrentIndent = CurrentIndent + indent;
+            indentLengths.Add(indent.Length);
         }
+
         /// <summary>
-        /// Remove the last indent that was added with PushIndent
+        ///     Remove the last indent that was added with PushIndent
         /// </summary>
         public string PopIndent()
         {
-            string returnValue = "";
-            if ((this.indentLengths.Count > 0))
+            var returnValue = "";
+            if (indentLengths.Count > 0)
             {
-                int indentLength = this.indentLengths[(this.indentLengths.Count - 1)];
-                this.indentLengths.RemoveAt((this.indentLengths.Count - 1));
-                if ((indentLength > 0))
+                var indentLength = indentLengths[indentLengths.Count - 1];
+                indentLengths.RemoveAt(indentLengths.Count - 1);
+                if (indentLength > 0)
                 {
-                    returnValue = this.currentIndentField.Substring((this.currentIndentField.Length - indentLength));
-                    this.currentIndentField = this.currentIndentField.Remove((this.currentIndentField.Length - indentLength));
+                    returnValue = CurrentIndent.Substring(CurrentIndent.Length - indentLength);
+                    CurrentIndent = CurrentIndent.Remove(CurrentIndent.Length - indentLength);
                 }
             }
             return returnValue;
         }
+
         /// <summary>
-        /// Remove any indentation
+        ///     Remove any indentation
         /// </summary>
         public void ClearIndent()
         {
-            this.indentLengths.Clear();
-            this.currentIndentField = "";
+            indentLengths.Clear();
+            CurrentIndent = "";
         }
+
         #endregion
+
         #region ToString Helpers
+
         /// <summary>
-        /// Utility class to produce culture-oriented representation of an object as a string.
+        ///     Utility class to produce culture-oriented representation of an object as a string.
         /// </summary>
         public class ToStringInstanceHelper
         {
-            private System.IFormatProvider formatProviderField  = global::System.Globalization.CultureInfo.InvariantCulture;
+            private IFormatProvider formatProviderField = CultureInfo.InvariantCulture;
+
             /// <summary>
-            /// Gets or sets format provider to be used by ToStringWithCulture method.
+            ///     Gets or sets format provider to be used by ToStringWithCulture method.
             /// </summary>
-            public System.IFormatProvider FormatProvider
+            public IFormatProvider FormatProvider
             {
-                get
-                {
-                    return this.formatProviderField ;
-                }
+                get { return formatProviderField; }
                 set
                 {
-                    if ((value != null))
+                    if (value != null)
                     {
-                        this.formatProviderField  = value;
+                        formatProviderField = value;
                     }
                 }
             }
+
             /// <summary>
-            /// This is called from the compile/run appdomain to convert objects within an expression block to a string
+            ///     This is called from the compile/run appdomain to convert objects within an expression block to a string
             /// </summary>
             public string ToStringWithCulture(object objectToConvert)
             {
-                if ((objectToConvert == null))
+                if (objectToConvert == null)
                 {
-                    throw new global::System.ArgumentNullException("objectToConvert");
+                    throw new ArgumentNullException("objectToConvert");
                 }
-                System.Type t = objectToConvert.GetType();
-                System.Reflection.MethodInfo method = t.GetMethod("ToString", new System.Type[] {
-                            typeof(System.IFormatProvider)});
-                if ((method == null))
+                var t = objectToConvert.GetType();
+                var method = t.GetMethod("ToString", new[]
+                {
+                    typeof (IFormatProvider)
+                });
+                if (method == null)
                 {
                     return objectToConvert.ToString();
                 }
-                else
+                return (string) method.Invoke(objectToConvert, new object[]
                 {
-                    return ((string)(method.Invoke(objectToConvert, new object[] {
-                                this.formatProviderField })));
-                }
+                    formatProviderField
+                });
             }
         }
-        private ToStringInstanceHelper toStringHelperField = new ToStringInstanceHelper();
+
         /// <summary>
-        /// Helper to produce culture-oriented representation of an object as a string
+        ///     Helper to produce culture-oriented representation of an object as a string
         /// </summary>
-        public ToStringInstanceHelper ToStringHelper
-        {
-            get
-            {
-                return this.toStringHelperField;
-            }
-        }
+        public ToStringInstanceHelper ToStringHelper { get; } = new ToStringInstanceHelper();
+
         #endregion
     }
+
     #endregion
 }

@@ -1,53 +1,48 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using MicroserviceMatrixDSL.DSL.DslStates;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace MicroserviceMatrixDSL.DSL.DslStates.Tests
 {
-    [TestClass()]
+    [TestClass]
     public class MessageTypeDescribingStateTests
     {
-        [TestMethod()]
+        [TestMethod]
         public void MessageTypeDescribingStateTest()
         {
             throw new NotImplementedException();
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void MessageTypeDescribingStateTest1()
         {
             throw new NotImplementedException();
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void NamespaceTest()
         {
             throw new NotImplementedException();
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void ClassTest()
         {
             throw new NotImplementedException();
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void MessageTest()
         {
             throw new NotImplementedException();
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void UsingTest()
         {
             throw new NotImplementedException();
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void DefaultTest()
         {
             throw new NotImplementedException();

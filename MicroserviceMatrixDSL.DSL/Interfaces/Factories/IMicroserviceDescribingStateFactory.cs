@@ -3,8 +3,8 @@
     public interface IMicroserviceDescribingStateFactory
     {
         IMicroserviceDescribingState CreateMicroserviceDescribingState(string microserviceName,
-                                            string defaultCommunicationMean,
-                                            string defaultMicroserviceNamespace,
-                                            IBaseState baseState);
+            string defaultCommunicationMean,
+            string defaultMicroserviceNamespace,
+            IBaseState baseState);
     }
 }

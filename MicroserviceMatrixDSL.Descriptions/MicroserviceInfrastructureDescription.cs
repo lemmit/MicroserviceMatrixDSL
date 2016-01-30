@@ -5,9 +5,6 @@ namespace MicroserviceMatrixDSL.Descriptions
 {
     public class MicroserviceInfrastructureDescription
     {
-        public IEnumerable<MessageTypeDescription> MessageTypes { get; }
-        public IEnumerable<MicroserviceDescription> Microservices { get; }
-
         public MicroserviceInfrastructureDescription(
             IEnumerable<MessageTypeDescription> messageTypesDescriptions,
             IEnumerable<MicroserviceDescription> microservicesDescriptions
@@ -16,5 +13,8 @@ namespace MicroserviceMatrixDSL.Descriptions
             MessageTypes = messageTypesDescriptions.ToList();
             Microservices = microservicesDescriptions.ToList();
         }
+
+        public IEnumerable<MessageTypeDescription> MessageTypes { get; }
+        public IEnumerable<MicroserviceDescription> Microservices { get; }
     }
 }

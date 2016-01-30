@@ -9,13 +9,12 @@ namespace MicroserviceMatrixDSL.CodeTranspiler
 {
     public class DslToCSharpTranspiler : ITranspiler
     {
-        public string GeneratedCode => _generatedCode.Value;
+        private readonly Lazy<string> _generatedCode;
 
         private readonly ITokenizer _tokenizer;
-        private readonly Lazy<string> _generatedCode;
+        private int _pointer;
         private Token[] _tokens;
-        private int _pointer = 0;
-        
+
         public DslToCSharpTranspiler(
             ITokenizer tokenizer
             )
@@ -23,6 +22,8 @@ namespace MicroserviceMatrixDSL.CodeTranspiler
             _tokenizer = tokenizer;
             _generatedCode = new Lazy<string>(GenerateCode);
         }
+
+        public string GeneratedCode => _generatedCode.Value;
 
         private string GenerateCode()
         {

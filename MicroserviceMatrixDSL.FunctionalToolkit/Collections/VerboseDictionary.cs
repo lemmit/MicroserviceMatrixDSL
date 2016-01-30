@@ -6,10 +6,12 @@ namespace MicroserviceMatrixDSL.FunctionalToolkit.Collections
     public class VerboseDictionary<T, T1> : IDictionary<T, T1>
     {
         private readonly IDictionary<T, T1> _dictionary;
+
         public VerboseDictionary(IDictionary<T, T1> dictionary)
         {
             _dictionary = dictionary;
-        } 
+        }
+
         public T1 this[T key]
         {
             get
@@ -24,16 +26,14 @@ namespace MicroserviceMatrixDSL.FunctionalToolkit.Collections
                 }
             }
 
-            set
-            {
-                _dictionary[key] = value;
-            }
+            set { _dictionary[key] = value; }
         }
 
         public int Count => _dictionary.Count;
         public bool IsReadOnly => _dictionary.IsReadOnly;
         public ICollection<T> Keys => _dictionary.Keys;
         public ICollection<T1> Values => _dictionary.Values;
+
         public void Add(KeyValuePair<T, T1> item)
         {
             _dictionary.Add(item);

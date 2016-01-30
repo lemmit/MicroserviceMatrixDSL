@@ -8,11 +8,11 @@ namespace MicroserviceMatrixDSL.DSL.DslStates
 {
     public class MicroserviceDescribingState : IMicroserviceDescribingState
     {
-        private readonly string _lastDeclaredMessageName = "";
         private readonly IBaseState _baseState;
+        private readonly string _lastDeclaredMessageName = "";
         private readonly IMicroserviceDescriptionBuilder _microserviceDescriptionBuilder;
 
-        public MicroserviceDescribingState( 
+        public MicroserviceDescribingState(
             string microserviceName,
             string defaultCommunicationMean,
             string defaultMicroserviceNamespace,
@@ -22,9 +22,9 @@ namespace MicroserviceMatrixDSL.DSL.DslStates
             _baseState = baseState;
             _microserviceDescriptionBuilder =
                 new MicroserviceDescriptionBuilder(
-                        microserviceName,
-                        defaultCommunicationMean,
-                        defaultMicroserviceNamespace
+                    microserviceName,
+                    defaultCommunicationMean,
+                    defaultMicroserviceNamespace
                     );
         }
 
@@ -43,27 +43,27 @@ namespace MicroserviceMatrixDSL.DSL.DslStates
         public IMicroserviceDescribingState Using(string communicationMean)
         {
             return new MicroserviceDescribingState(
-                    _baseState,
-                    _microserviceDescriptionBuilder.WithCommunicationMean(communicationMean),
-                    _lastDeclaredMessageName
+                _baseState,
+                _microserviceDescriptionBuilder.WithCommunicationMean(communicationMean),
+                _lastDeclaredMessageName
                 );
         }
 
         public IMicroserviceDescribingState Sends(string sendsMessageTypeName)
         {
             return new MicroserviceDescribingState(
-                    _baseState,
-                    _microserviceDescriptionBuilder.Sends(sendsMessageTypeName),
-                    _lastDeclaredMessageName
+                _baseState,
+                _microserviceDescriptionBuilder.Sends(sendsMessageTypeName),
+                _lastDeclaredMessageName
                 );
         }
 
         public IMicroserviceDescribingState Receives(string receiveMessageTypeName)
         {
             return new MicroserviceDescribingState(
-                    _baseState,
-                    _microserviceDescriptionBuilder.RespondsTo(receiveMessageTypeName),
-                    receiveMessageTypeName
+                _baseState,
+                _microserviceDescriptionBuilder.RespondsTo(receiveMessageTypeName),
+                receiveMessageTypeName
                 );
         }
 
@@ -78,30 +78,25 @@ namespace MicroserviceMatrixDSL.DSL.DslStates
                 throw new InvalidOperationException("Microservice first has to receive something to respond!");
 
             return new MicroserviceDescribingState(
-                    _baseState,
-                    _microserviceDescriptionBuilder.RespondsToWith(_lastDeclaredMessageName, respondMessageTypeName),
-                    _lastDeclaredMessageName
+                _baseState,
+                _microserviceDescriptionBuilder.RespondsToWith(_lastDeclaredMessageName, respondMessageTypeName),
+                _lastDeclaredMessageName
                 );
         }
 
         public IMicroserviceDescribingState Microservice(string microserviceName)
         {
             return _baseState
-                    .WithMicroservice(Create())
-                    .Microservice(microserviceName);
-        }
-
-        private MicroserviceDescription Create()
-        {
-            return _microserviceDescriptionBuilder.Create();
+                .WithMicroservice(Create())
+                .Microservice(microserviceName);
         }
 
         public IMicroserviceDescribingState Like(string microserviceMixin)
         {
             return new MicroserviceDescribingState(
-                    _baseState,
-                    _microserviceDescriptionBuilder.Extends(microserviceMixin),
-                    _lastDeclaredMessageName
+                _baseState,
+                _microserviceDescriptionBuilder.Extends(microserviceMixin),
+                _lastDeclaredMessageName
                 );
         }
 
@@ -125,7 +120,12 @@ namespace MicroserviceMatrixDSL.DSL.DslStates
         public IBaseState Flush()
         {
             return _baseState
-                    .WithMicroservice(Create());
+                .WithMicroservice(Create());
+        }
+
+        private MicroserviceDescription Create()
+        {
+            return _microserviceDescriptionBuilder.Create();
         }
     }
 }

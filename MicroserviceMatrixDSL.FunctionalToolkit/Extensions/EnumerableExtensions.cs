@@ -36,7 +36,8 @@ namespace MicroserviceMatrixDSL.FunctionalToolkit.Extensions
             }
         }
 
-        public static string Stringify<T>(this IEnumerable<T> collection, Func<T, string> printElemFunc = null, string separator = ", ")
+        public static string Stringify<T>(this IEnumerable<T> collection, Func<T, string> printElemFunc = null,
+            string separator = ", ")
         {
             var list = collection.ToList();
             if (!list.Any()) return string.Empty;
@@ -72,4 +73,3 @@ namespace MicroserviceMatrixDSL.FunctionalToolkit.Extensions
         }
     }
 }
-

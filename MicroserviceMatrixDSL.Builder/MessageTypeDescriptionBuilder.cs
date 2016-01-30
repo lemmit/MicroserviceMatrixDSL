@@ -31,17 +31,17 @@ namespace MicroserviceMatrixDSL.Builder
         public IMessageTypeDescriptionBuilder WithTypeName(string declaredMessageType)
         {
             return new MessageTypeDescriptionBuilder(
-                    declaredMessageType,
-                    _declaredMessageTypeNamespace
+                declaredMessageType,
+                _declaredMessageTypeNamespace
                 );
         }
 
         public IMessageTypeDescriptionBuilder WithNamespace(string messageTypeNamespace)
         {
             return new MessageTypeDescriptionBuilder(
-                    _declaredMessageTypeName,
-                    messageTypeNamespace
+                _declaredMessageTypeName,
+                messageTypeNamespace
                 );
-        } 
+        }
     }
 }

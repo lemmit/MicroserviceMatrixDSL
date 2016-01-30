@@ -19,7 +19,7 @@ namespace MicroserviceMatrixDSL.DescriptionPrinters
             sb.AppendLine("Declared messages:");
             microserviceInfrastructureDescription.MessageTypes.ForEach(msgType =>
                 sb.AppendLine($"{msgType.Namespace}." +
-                                  $"{msgType.DeclaredMessageType}")
+                              $"{msgType.DeclaredMessageType}")
                 );
 
             sb.AppendLine("\nDeclared microservices:");
@@ -36,7 +36,8 @@ namespace MicroserviceMatrixDSL.DescriptionPrinters
                         + $"\n{mcsDescription.Namespace}.{mcsDescription.MicroserviceName}"
                         + $"\nCommunication: {mcsDescription.CommunicationMean}"
                         + $"\nMixins: {mcsDescription.Mixins.Stringify()}"
-                        + $"\nSends messages: {mcsDescription.SendingMessages.Select(msg => $"{mms[msg]}.{msg}").Stringify()}"
+                        +
+                        $"\nSends messages: {mcsDescription.SendingMessages.Select(msg => $"{mms[msg]}.{msg}").Stringify()}"
                         + $"\nReq/Resp messages: {mcsDescription.ReceiveRespondMessages.Stringify(stringifyDictPair)}"
                         );
                 }

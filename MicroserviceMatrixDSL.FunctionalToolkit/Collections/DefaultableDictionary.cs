@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace MicroserviceMatrixDSL.FunctionalToolkit.Collections
 {
     /// <summary>
-    /// Dictionary that returns default value instead of throwing exception if key is not available
+    ///     Dictionary that returns default value instead of throwing exception if key is not available
     /// </summary>
     /// <typeparam name="TKey">The type of the key.</typeparam>
     /// <typeparam name="TValue">The type of the value.</typeparam>
@@ -54,7 +54,7 @@ namespace MicroserviceMatrixDSL.FunctionalToolkit.Collections
             return _dictionary.Remove(item);
         }
 
-        public int Count => _dictionary.Count; 
+        public int Count => _dictionary.Count;
         public bool IsReadOnly => _dictionary.IsReadOnly;
 
         public bool ContainsKey(TKey key)

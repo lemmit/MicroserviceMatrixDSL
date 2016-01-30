@@ -8,11 +8,10 @@ namespace MicroserviceMatrixDSL.CodeTranspiler
 {
     public class Tokenizer : ITokenizer
     {
-        public Token[] Tokenized => _tokenized.Value;
-
-        private readonly IEnumerable<string> _tokens;
         private readonly IKeywordsProvider _keywordsProvider;
         private readonly Lazy<Token[]> _tokenized;
+
+        private readonly IEnumerable<string> _tokens;
 
         public Tokenizer(IEnumerable<string> tokens, IKeywordsProvider keywordsProvider)
         {
@@ -20,6 +19,8 @@ namespace MicroserviceMatrixDSL.CodeTranspiler
             _keywordsProvider = keywordsProvider;
             _tokenized = new Lazy<Token[]>(Tokenize);
         }
+
+        public Token[] Tokenized => _tokenized.Value;
 
         private Token[] Tokenize()
         {
@@ -31,13 +32,13 @@ namespace MicroserviceMatrixDSL.CodeTranspiler
                 .Trim()
                 .Select(token =>
                     new Token(
-                            token,
-                            keywords.Any(keyword => keyword.Key.ToLower().Equals(token.ToLower())),
-                            keywords.Where(keyword => keyword.Key.ToLower().Equals(token.ToLower()))
-                                    .Select(keyword => keyword.Value)
-                            )
+                        token,
+                        keywords.Any(keyword => keyword.Key.ToLower().Equals(token.ToLower())),
+                        keywords.Where(keyword => keyword.Key.ToLower().Equals(token.ToLower()))
+                            .Select(keyword => keyword.Value)
                         )
+                )
                 .ToArray();
-        } 
+        }
     }
 }

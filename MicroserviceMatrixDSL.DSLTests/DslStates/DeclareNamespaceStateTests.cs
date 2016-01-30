@@ -1,23 +1,18 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using MicroserviceMatrixDSL.DSL.DslStates;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace MicroserviceMatrixDSL.DSL.DslStates.Tests
 {
-    [TestClass()]
+    [TestClass]
     public class DeclareNamespaceStateTests
     {
-        [TestMethod()]
+        [TestMethod]
         public void DeclareNamespaceStateTest()
         {
             throw new NotImplementedException();
         }
 
-        [TestMethod()]
+        [TestMethod]
         public void NamespaceTest()
         {
             throw new NotImplementedException();

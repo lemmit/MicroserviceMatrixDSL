@@ -11,13 +11,6 @@ namespace MicroserviceMatrixDSL.DSL.DslStates
         private readonly IInfrastructureDesciptionBuilder _infrastractureDescriptionBuilder;
         private readonly IStatesFactory _statesFactory;
 
-        public string MessagesDefaultNamespace 
-            => _infrastractureDescriptionBuilder.MessagesDefaultNamespace;
-        public string MicroserviceDefaultNamespace
-            => _infrastractureDescriptionBuilder.MicroserviceDefaultNamespace;
-        public string DefaultCommunicationMean
-            => _infrastractureDescriptionBuilder.DefaultCommunicationMean;
-
         public BaseState(
             IInfrastructureDesciptionBuilder infrastructureDesciptionBuilder,
             IStatesFactory statesFactory
@@ -34,14 +27,23 @@ namespace MicroserviceMatrixDSL.DSL.DslStates
             IStatesFactory statesFactory
             )
         {
-            _infrastractureDescriptionBuilder = 
+            _infrastractureDescriptionBuilder =
                 new InfrastructureDesciptionBuilder(
                     messageDefaultNamespace,
                     microserviceDefaultNamespace,
                     defaultCommunicationMean
-                );
+                    );
             _statesFactory = statesFactory;
         }
+
+        public string MessagesDefaultNamespace
+            => _infrastractureDescriptionBuilder.MessagesDefaultNamespace;
+
+        public string MicroserviceDefaultNamespace
+            => _infrastractureDescriptionBuilder.MicroserviceDefaultNamespace;
+
+        public string DefaultCommunicationMean
+            => _infrastractureDescriptionBuilder.DefaultCommunicationMean;
 
         public IDeclareDefaultsState Default()
         {
@@ -61,10 +63,10 @@ namespace MicroserviceMatrixDSL.DSL.DslStates
         public IMicroserviceDescribingState Microservice(string microserviceName)
         {
             return new MicroserviceDescribingState(
-                    microserviceName,
-                    _infrastractureDescriptionBuilder.DefaultCommunicationMean,
-                    _infrastractureDescriptionBuilder.MicroserviceDefaultNamespace,
-                    this
+                microserviceName,
+                _infrastractureDescriptionBuilder.DefaultCommunicationMean,
+                _infrastractureDescriptionBuilder.MicroserviceDefaultNamespace,
+                this
                 );
         }
 
@@ -75,29 +77,28 @@ namespace MicroserviceMatrixDSL.DSL.DslStates
 
         public IBaseState WithDefaultMessageNamespace(string messagesDefaultNamespace)
         {
-
             return new BaseState(
-                    _infrastractureDescriptionBuilder
-                        .WithDefaultMessageNamespace(messagesDefaultNamespace),
-                    _statesFactory
+                _infrastractureDescriptionBuilder
+                    .WithDefaultMessageNamespace(messagesDefaultNamespace),
+                _statesFactory
                 );
         }
 
         public IBaseState WithDefaultCommunicationMean(string communicationMean)
         {
             return new BaseState(
-                   _infrastractureDescriptionBuilder
-                        .WithDefaultCommunicationMean(communicationMean),
-                   _statesFactory
-               );
+                _infrastractureDescriptionBuilder
+                    .WithDefaultCommunicationMean(communicationMean),
+                _statesFactory
+                );
         }
 
         public IBaseState WithDefaultMicroserviceNamespace(string microserviceDefaultNamespace)
         {
             return new BaseState(
-                    _infrastractureDescriptionBuilder
-                        .WithDefaultMicroserviceNamespace(microserviceDefaultNamespace),
-                    _statesFactory
+                _infrastractureDescriptionBuilder
+                    .WithDefaultMicroserviceNamespace(microserviceDefaultNamespace),
+                _statesFactory
                 );
         }
 
@@ -113,9 +114,9 @@ namespace MicroserviceMatrixDSL.DSL.DslStates
         public IBaseState WithMicroservice(MicroserviceDescription microserviceDescription)
         {
             return new BaseState(
-                    _infrastractureDescriptionBuilder
-                        .WithMicroservice(microserviceDescription),
-                    _statesFactory
+                _infrastractureDescriptionBuilder
+                    .WithMicroservice(microserviceDescription),
+                _statesFactory
                 );
         }
     }

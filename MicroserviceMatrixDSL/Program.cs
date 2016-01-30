@@ -6,10 +6,9 @@ using MicroserviceMatrixDSL.Generators;
 
 namespace MicroserviceMatrixDSL
 {
-
-    class Program
+    internal class Program
     {
-        static void Main()
+        private static void Main()
         {
             var input = File.ReadAllLines("../../input.msdl");
 
@@ -21,10 +20,7 @@ namespace MicroserviceMatrixDSL
                     new Tokenizer(
                         input,
                         new KeywordsProvider()
-                        )),
-                    defaultMessagesNamespace: "Messages",
-                    defaultCommunicationMean: "None",
-                    defaultMicroservicesNamespace: "Microservices"
+                        )), "Messages", "None", "Microservices"
                 );
             var cg = new CodeGenerator(printer, transpiler, input);
             File.WriteAllText("test.generated.cs", cg.GeneratedCode);
