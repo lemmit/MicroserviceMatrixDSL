@@ -104,7 +104,7 @@
       <Project>{d7fbd7bb-4f4f-4f0c-a662-ceaa8c4660c0}</Project>
       <Name>MicroserviceMatrixDSL.Builder</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MicroserviceMatrixDSL.CodeGenerator\MicroserviceMatrixDSL.CodeTranspiler.csproj">
+    <ProjectReference Include="..\MicroserviceMatrixDSL.CodeTranspiler\MicroserviceMatrixDSL.CodeTranspiler.csproj">
       <Project>{f437645b-674f-464d-8749-d85080b291c0}</Project>
       <Name>MicroserviceMatrixDSL.CodeTranspiler</Name>
     </ProjectReference>
