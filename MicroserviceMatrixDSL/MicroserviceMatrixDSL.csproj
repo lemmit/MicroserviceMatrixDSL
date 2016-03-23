@@ -102,6 +102,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MicroserviceMatrixDSL.AntrBasedTranspiler\MicroserviceMatrixDSL.AntlrBasedTranspiler.csproj">
+      <Project>{0506b454-098c-44f7-921b-23706c371ec5}</Project>
+      <Name>MicroserviceMatrixDSL.AntlrBasedTranspiler</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MicroserviceMatrixDSL.Builder\MicroserviceMatrixDSL.Builder.csproj">
       <Project>{d7fbd7bb-4f4f-4f0c-a662-ceaa8c4660c0}</Project>
       <Name>MicroserviceMatrixDSL.Builder</Name>

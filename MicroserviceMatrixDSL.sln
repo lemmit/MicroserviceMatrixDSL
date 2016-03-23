@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroserviceMatrixDSL", "MicroserviceMatrixDSL\MicroserviceMatrixDSL.csproj", "{CB10359E-423A-4E49-B937-269571CD6E94}"
 EndProject
@@ -15,13 +15,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroserviceMatrixDSL.CodeT
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroserviceMatrixDSL.Descriptions", "MicroserviceMatrixDSL.Descriptions\MicroserviceMatrixDSL.Descriptions.csproj", "{A00B9901-0D0E-460D-B053-529A2CBB7E2B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroserviceMatrixDSL.DSLTests", "MicroserviceMatrixDSL.DSLTests\MicroserviceMatrixDSL.DSLTests.csproj", "{B9ECFE31-40DF-4C2D-AB71-AD8FEEB93204}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroserviceMatrixDSL.FunctionalToolkitTests", "MicroserviceMatrixDSL.FunctionalToolkitTests\MicroserviceMatrixDSL.FunctionalToolkitTests.csproj", "{254138A3-1CF3-4918-A177-7FD4113A15CE}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroserviceMatrixDSL.CodeTranspilerTests", "MicroserviceMatrixDSL.CodeTranspilerTests\MicroserviceMatrixDSL.CodeTranspilerTests.csproj", "{EC072CE8-1BCA-4DA2-9D3E-E24573453F98}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroserviceMatrixDSL.BuilderTests", "MicroserviceMatrixDSL.BuilderTests\MicroserviceMatrixDSL.BuilderTests.csproj", "{7B1D586C-ED15-45CE-8D6D-F589990A65D4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroserviceMatrixDSL.AntlrBasedTranspiler", "MicroserviceMatrixDSL.AntrBasedTranspiler\MicroserviceMatrixDSL.AntlrBasedTranspiler.csproj", "{0506B454-098C-44F7-921B-23706C371EC5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,22 +47,10 @@ Global
 		{A00B9901-0D0E-460D-B053-529A2CBB7E2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A00B9901-0D0E-460D-B053-529A2CBB7E2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A00B9901-0D0E-460D-B053-529A2CBB7E2B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B9ECFE31-40DF-4C2D-AB71-AD8FEEB93204}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B9ECFE31-40DF-4C2D-AB71-AD8FEEB93204}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B9ECFE31-40DF-4C2D-AB71-AD8FEEB93204}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B9ECFE31-40DF-4C2D-AB71-AD8FEEB93204}.Release|Any CPU.Build.0 = Release|Any CPU
-		{254138A3-1CF3-4918-A177-7FD4113A15CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{254138A3-1CF3-4918-A177-7FD4113A15CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{254138A3-1CF3-4918-A177-7FD4113A15CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{254138A3-1CF3-4918-A177-7FD4113A15CE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EC072CE8-1BCA-4DA2-9D3E-E24573453F98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EC072CE8-1BCA-4DA2-9D3E-E24573453F98}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EC072CE8-1BCA-4DA2-9D3E-E24573453F98}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EC072CE8-1BCA-4DA2-9D3E-E24573453F98}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7B1D586C-ED15-45CE-8D6D-F589990A65D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7B1D586C-ED15-45CE-8D6D-F589990A65D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7B1D586C-ED15-45CE-8D6D-F589990A65D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7B1D586C-ED15-45CE-8D6D-F589990A65D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0506B454-098C-44F7-921B-23706C371EC5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0506B454-098C-44F7-921B-23706C371EC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0506B454-098C-44F7-921B-23706C371EC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0506B454-098C-44F7-921B-23706C371EC5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

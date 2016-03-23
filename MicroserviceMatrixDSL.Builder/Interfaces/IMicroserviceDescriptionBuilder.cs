@@ -11,5 +11,6 @@ namespace MicroserviceMatrixDSL.Builder.Interfaces
         IMicroserviceDescriptionBuilder RespondsTo(string requestMessageTypeName);
         IMicroserviceDescriptionBuilder Extends(string microserviceMixinName);
         IMicroserviceDescriptionBuilder Sends(string messageTypeName);
+        IMicroserviceDescriptionBuilder WithName(string name);
     }
 }
