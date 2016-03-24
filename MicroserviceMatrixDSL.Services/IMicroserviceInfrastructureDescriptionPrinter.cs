@@ -1,6 +1,6 @@
 using MicroserviceMatrixDSL.Descriptions;
 
-namespace MicroserviceMatrixDSL.DescriptionPrinters
+namespace MicroserviceMatrixDSL.Services
 {
     public interface IMicroserviceInfrastructureDescriptionPrinter
     {

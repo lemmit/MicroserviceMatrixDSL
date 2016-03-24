@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 
-[assembly: AssemblyTitle("Msdl.AntrBasedTranspiler")]
+[assembly: AssemblyTitle("MicroserviceMatrixDSL.TemplateGenerator")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Msdl.AntrBasedTranspiler")]
+[assembly: AssemblyProduct("MicroserviceMatrixDSL.TemplateGenerator")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -22,7 +22,7 @@ using System.Runtime.InteropServices;
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
 
-[assembly: Guid("0506b454-098c-44f7-921b-23706c371ec5")]
+[assembly: Guid("2269904a-6e76-4b14-b086-0a263d4f660a")]
 
 // Version information for an assembly consists of the following four values:
 //

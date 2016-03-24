@@ -3,7 +3,7 @@ using System.Linq;
 using MicroserviceMatrixDSL.Descriptions;
 using MicroserviceMatrixDSL.FunctionalToolkit.Extensions;
 
-namespace MicroserviceMatrixDSL.Template
+namespace MicroserviceMatrixDSL.TemplateGenerator.Template
 {
     public class MicroserviceInfrastructureDescriptionExtender
     {
@@ -39,8 +39,7 @@ namespace MicroserviceMatrixDSL.Template
             var mixins = Microservices.Where(ms => msvc.Mixins.Contains(ms.MicroserviceName))
                 .SelectMany(ms => ReqResponseMessages(ms.MicroserviceName));
             var allmsgs = mixins
-                .AndThen(msvc.ReceiveRespondMessages)
-                .Distinct()
+                .AndThen(msvc.ReceiveRespondMessages).Distinct()
                 .ToDictionary()
                 .ToDefaultableDictionary("object");
             return allmsgs;
@@ -52,8 +51,7 @@ namespace MicroserviceMatrixDSL.Template
             return Microservices
                 .Where(ms => msvc.Mixins.Contains(ms.MicroserviceName))
                 .SelectMany(ms => ms.SendingMessages)
-                .AndThen(msvc.SendingMessages)
-                .Distinct();
+                .AndThen(msvc.SendingMessages).Distinct();
         }
 
 

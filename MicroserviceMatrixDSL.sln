@@ -11,11 +11,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroserviceMatrixDSL.Funct
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroserviceMatrixDSL.Builder", "MicroserviceMatrixDSL.Builder\MicroserviceMatrixDSL.Builder.csproj", "{D7FBD7BB-4F4F-4F0C-A662-CEAA8C4660C0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroserviceMatrixDSL.CodeTranspiler", "MicroserviceMatrixDSL.CodeTranspiler\MicroserviceMatrixDSL.CodeTranspiler.csproj", "{F437645B-674F-464D-8749-D85080B291C0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroserviceMatrixDSL.CSScriptInterpreter", "MicroserviceMatrixDSL.CSScriptInterpreter\MicroserviceMatrixDSL.CSScriptInterpreter.csproj", "{F437645B-674F-464D-8749-D85080B291C0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroserviceMatrixDSL.Descriptions", "MicroserviceMatrixDSL.Descriptions\MicroserviceMatrixDSL.Descriptions.csproj", "{A00B9901-0D0E-460D-B053-529A2CBB7E2B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroserviceMatrixDSL.AntlrBasedTranspiler", "MicroserviceMatrixDSL.AntrBasedTranspiler\MicroserviceMatrixDSL.AntlrBasedTranspiler.csproj", "{0506B454-098C-44F7-921B-23706C371EC5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroserviceMatrixDSL.AntlrInterpreter", "MicroserviceMatrixDSL.AntrBasedTranspiler\MicroserviceMatrixDSL.AntlrInterpreter.csproj", "{0506B454-098C-44F7-921B-23706C371EC5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroserviceMatrixDSL.Services", "MicroserviceMatrixDSL.Services\MicroserviceMatrixDSL.Services.csproj", "{A42E87C3-D975-4317-B272-1474F86C0626}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroserviceMatrixDSL.TemplateGenerator", "MicroserviceMatrixDSL.TemplateGenerator\MicroserviceMatrixDSL.TemplateGenerator.csproj", "{2269904A-6E76-4B14-B086-0A263D4F660A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +55,14 @@ Global
 		{0506B454-098C-44F7-921B-23706C371EC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0506B454-098C-44F7-921B-23706C371EC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0506B454-098C-44F7-921B-23706C371EC5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A42E87C3-D975-4317-B272-1474F86C0626}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A42E87C3-D975-4317-B272-1474F86C0626}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A42E87C3-D975-4317-B272-1474F86C0626}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A42E87C3-D975-4317-B272-1474F86C0626}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2269904A-6E76-4B14-B086-0A263D4F660A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2269904A-6E76-4B14-B086-0A263D4F660A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2269904A-6E76-4B14-B086-0A263D4F660A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2269904A-6E76-4B14-B086-0A263D4F660A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

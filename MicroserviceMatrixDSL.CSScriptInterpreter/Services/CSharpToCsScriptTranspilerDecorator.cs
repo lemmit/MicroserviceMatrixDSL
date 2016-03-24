@@ -1,8 +1,8 @@
-﻿using MicroserviceMatrixDSL.CodeTranspiler.Interfaces;
+﻿using MicroserviceMatrixDSL.CSScriptInterpreter.Services.Interfaces;
 
-namespace MicroserviceMatrixDSL.Generators
+namespace MicroserviceMatrixDSL.CSScriptInterpreter.Services
 {
-    public class CSharpToCsScriptTranspilerDecorator : ITranspiler
+    internal class CSharpToCsScriptTranspilerDecorator : ITranspiler
     {
         private readonly string _defaultCommuniationMean;
 

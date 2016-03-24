@@ -1,12 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using MicroserviceMatrixDSL.CodeTranspiler.Interfaces;
 using MicroserviceMatrixDSL.DSL.DslStates;
 using MicroserviceMatrixDSL.FunctionalToolkit;
 
-namespace MicroserviceMatrixDSL
+namespace MicroserviceMatrixDSL.CSScriptInterpreter.Providers
 {
-    public class KeywordsProvider : IKeywordsProvider
+    public class KeywordsProvider
     {
         public IEnumerable<KeyValuePair<string, int>> GetKeywords()
         {

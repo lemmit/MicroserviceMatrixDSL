@@ -5,7 +5,7 @@ using System.Text;
 using MicroserviceMatrixDSL.Descriptions;
 using MicroserviceMatrixDSL.FunctionalToolkit.Extensions;
 
-namespace MicroserviceMatrixDSL.DescriptionPrinters
+namespace MicroserviceMatrixDSL.Services
 {
     public class MicroserviceInfrastructureDescriptionDebugPrinter : IMicroserviceInfrastructureDescriptionPrinter
     {

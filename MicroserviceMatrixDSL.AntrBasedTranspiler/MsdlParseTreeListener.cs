@@ -8,13 +8,13 @@ using MicroserviceMatrixDSL.Descriptions;
 
 namespace MicroserviceMatrixDSL.AntlrBasedTranspiler
 {
-    public class ParseTreeListener : microservice_description_languageBaseListener
+    public class MsdlParseTreeListener : microservice_description_languageBaseListener
     {
-        private IMicroserviceDescriptionBuilder _microserviceDescriptionBuilder;
-        private IMessageTypeDescriptionBuilder _messageTypeDescriptionBuilder;
         private IInfrastructureDesciptionBuilder _infrastructureDesciptionBuilder;
-        
-        public ParseTreeListener(
+        private IMessageTypeDescriptionBuilder _messageTypeDescriptionBuilder;
+        private IMicroserviceDescriptionBuilder _microserviceDescriptionBuilder;
+
+        public MsdlParseTreeListener(
             IInfrastructureDesciptionBuilder infrastructureDesciptionBuilder,
             IMicroserviceDescriptionBuilder microserviceDescriptionBuilder,
             IMessageTypeDescriptionBuilder messageTypeDescriptionBuilder)
@@ -28,17 +28,21 @@ namespace MicroserviceMatrixDSL.AntlrBasedTranspiler
         {
             return _infrastructureDesciptionBuilder.Create();
         }
-        public override void ExitDefault_microservice_namespace_declaration(microservice_description_languageParser.Default_microservice_namespace_declarationContext context)
+
+        public override void ExitDefault_microservice_namespace_declaration(
+            microservice_description_languageParser.Default_microservice_namespace_declarationContext context)
         {
             _infrastructureDesciptionBuilder =
                 _infrastructureDesciptionBuilder
                     .WithDefaultMicroserviceNamespace(context.default_microservice_namespace.Text);
 
-            _microserviceDescriptionBuilder = 
+            _microserviceDescriptionBuilder =
                 _microserviceDescriptionBuilder
                     .WithinNamespace(context.default_microservice_namespace.Text);
         }
-        public override void ExitDefault_message_namespace_declaration(microservice_description_languageParser.Default_message_namespace_declarationContext context)
+
+        public override void ExitDefault_message_namespace_declaration(
+            microservice_description_languageParser.Default_message_namespace_declarationContext context)
         {
             _infrastructureDesciptionBuilder
                 = _infrastructureDesciptionBuilder
@@ -50,20 +54,22 @@ namespace MicroserviceMatrixDSL.AntlrBasedTranspiler
             Debug.WriteLine("###Default namespace namespace declaration:" + context.default_message_namespace);
         }
 
-        public override void ExitDefault_communication_declaration(microservice_description_languageParser.Default_communication_declarationContext context)
+        public override void ExitDefault_communication_declaration(
+            microservice_description_languageParser.Default_communication_declarationContext context)
         {
             _infrastructureDesciptionBuilder =
                 _infrastructureDesciptionBuilder
                     .WithDefaultCommunicationMean(context.communication_name.Text);
 
-            _microserviceDescriptionBuilder = 
+            _microserviceDescriptionBuilder =
                 _microserviceDescriptionBuilder
                     .WithCommunicationMean(context.communication_name.Text);
-                    
+
             Debug.WriteLine("###Default communication declaration:" + context.communication_name);
         }
 
-        public override void ExitMessage_declaration(microservice_description_languageParser.Message_declarationContext context)
+        public override void ExitMessage_declaration(
+            microservice_description_languageParser.Message_declarationContext context)
         {
             Debug.WriteLine("###Message declaration:" + context.message_name);
             var messageBuilder = _messageTypeDescriptionBuilder
@@ -74,18 +80,19 @@ namespace MicroserviceMatrixDSL.AntlrBasedTranspiler
                 messageBuilder = messageBuilder.WithNamespace(descriptionContext.@namespace.Text);
                 Debug.WriteLine("\t###Description: " + descriptionContext.@namespace);
             }
-            _infrastructureDesciptionBuilder = 
+            _infrastructureDesciptionBuilder =
                 _infrastructureDesciptionBuilder
                     .WithDeclaredMessage(messageBuilder.Create());
         }
 
-        public override void ExitMicroservice_declaration(microservice_description_languageParser.Microservice_declarationContext context)
+        public override void ExitMicroservice_declaration(
+            microservice_description_languageParser.Microservice_declarationContext context)
         {
             Debug.WriteLine("###Microservice declaration:" + context.microservice_name);
             var microserviceBuilder =
                 _microserviceDescriptionBuilder
                     .WithName(context.microservice_name.Text);
-                
+
             context.microservice_description().ToList().ForEach(desc =>
             {
                 if (desc.mixin_declaration() != null)
@@ -130,13 +137,13 @@ namespace MicroserviceMatrixDSL.AntlrBasedTranspiler
                     Debug.WriteLine("\t" + desc.used_communication().communication_name);
                 }
             });
-            _infrastructureDesciptionBuilder = _infrastructureDesciptionBuilder.WithMicroservice(microserviceBuilder.Create());
-
+            _infrastructureDesciptionBuilder =
+                _infrastructureDesciptionBuilder.WithMicroservice(microserviceBuilder.Create());
         }
+
         public override void VisitErrorNode(IErrorNode node)
         {
             throw new Exception(node.ToString());
         }
-
     }
 }

@@ -1,22 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using MicroserviceMatrixDSL.CodeTranspiler.Interfaces;
+using MicroserviceMatrixDSL.CSScriptInterpreter.Models;
+using MicroserviceMatrixDSL.CSScriptInterpreter.Providers;
 using MicroserviceMatrixDSL.FunctionalToolkit.Extensions;
 
-namespace MicroserviceMatrixDSL.CodeTranspiler
+namespace MicroserviceMatrixDSL.CSScriptInterpreter.Services
 {
-    public class Tokenizer : ITokenizer
+    internal class Tokenizer
     {
-        private readonly IKeywordsProvider _keywordsProvider;
+        private readonly KeywordsProvider _keywordsProvider;
         private readonly Lazy<Token[]> _tokenized;
 
         private readonly IEnumerable<string> _tokens;
 
-        public Tokenizer(IEnumerable<string> tokens, IKeywordsProvider keywordsProvider)
+        public Tokenizer(IEnumerable<string> tokens)
         {
             _tokens = tokens;
-            _keywordsProvider = keywordsProvider;
+            _keywordsProvider = new KeywordsProvider();
             _tokenized = new Lazy<Token[]>(Tokenize);
         }
 

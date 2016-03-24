@@ -2,21 +2,22 @@
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
-using MicroserviceMatrixDSL.CodeTranspiler.Interfaces;
+using MicroserviceMatrixDSL.CSScriptInterpreter.Models;
+using MicroserviceMatrixDSL.CSScriptInterpreter.Services.Interfaces;
 using MicroserviceMatrixDSL.FunctionalToolkit.Extensions;
 
-namespace MicroserviceMatrixDSL.CodeTranspiler
+namespace MicroserviceMatrixDSL.CSScriptInterpreter.Services
 {
-    public class DslToCSharpTranspiler : ITranspiler
+    internal class DslToCSharpTranspiler : ITranspiler
     {
         private readonly Lazy<string> _generatedCode;
 
-        private readonly ITokenizer _tokenizer;
+        private readonly Tokenizer _tokenizer;
         private int _pointer;
         private Token[] _tokens;
 
         public DslToCSharpTranspiler(
-            ITokenizer tokenizer
+            Tokenizer tokenizer
             )
         {
             _tokenizer = tokenizer;

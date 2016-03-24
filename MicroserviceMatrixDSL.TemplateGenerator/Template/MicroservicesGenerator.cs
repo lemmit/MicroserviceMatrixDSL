@@ -7,7 +7,7 @@
 //     the code is regenerated.
 // </auto-generated>
 // ------------------------------------------------------------------------------
-namespace MicroserviceMatrixDSL.Template
+namespace MicroserviceMatrixDSL.TemplateGenerator.Template
 {
     using System;
     
@@ -15,7 +15,7 @@ namespace MicroserviceMatrixDSL.Template
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Users\Michal\Documents\Visual Studio 2015\Projects\MicroserviceMatrixDSL\MicroserviceMatrixDSL\Template\MicroservicesGenerator.tt"
+    #line 1 "C:\Users\Michal\Documents\Visual Studio 2015\Projects\MicroserviceMatrixDSL\MicroserviceMatrixDSL.TemplateGenerator\Template\MicroservicesGenerator.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "14.0.0.0")]
     public partial class MicroservicesGenerator : MicroservicesGeneratorBase
     {
@@ -27,21 +27,21 @@ namespace MicroserviceMatrixDSL.Template
         {
             this.Write("\r\n");
             
-            #line 4 "C:\Users\Michal\Documents\Visual Studio 2015\Projects\MicroserviceMatrixDSL\MicroserviceMatrixDSL\Template\MicroservicesGenerator.tt"
+            #line 4 "C:\Users\Michal\Documents\Visual Studio 2015\Projects\MicroserviceMatrixDSL\MicroserviceMatrixDSL.TemplateGenerator\Template\MicroservicesGenerator.tt"
  foreach(var microservicesByNamespace in MicroservicesByNamespace) { 
             
             #line default
             #line hidden
             this.Write("namespace ");
             
-            #line 5 "C:\Users\Michal\Documents\Visual Studio 2015\Projects\MicroserviceMatrixDSL\MicroserviceMatrixDSL\Template\MicroservicesGenerator.tt"
+            #line 5 "C:\Users\Michal\Documents\Visual Studio 2015\Projects\MicroserviceMatrixDSL\MicroserviceMatrixDSL.TemplateGenerator\Template\MicroservicesGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(microservicesByNamespace.Key));
             
             #line default
             #line hidden
             this.Write(" {\r\n\r\n");
             
-            #line 7 "C:\Users\Michal\Documents\Visual Studio 2015\Projects\MicroserviceMatrixDSL\MicroserviceMatrixDSL\Template\MicroservicesGenerator.tt"
+            #line 7 "C:\Users\Michal\Documents\Visual Studio 2015\Projects\MicroserviceMatrixDSL\MicroserviceMatrixDSL.TemplateGenerator\Template\MicroservicesGenerator.tt"
  foreach(var microservice in microservicesByNamespace) { 
 	var reqRespMessages = ReqResponseMessagesWithMixins(microservice.MicroserviceName);
 
@@ -50,105 +50,105 @@ namespace MicroserviceMatrixDSL.Template
             #line hidden
             this.Write("\tpublic abstract class Abstract");
             
-            #line 10 "C:\Users\Michal\Documents\Visual Studio 2015\Projects\MicroserviceMatrixDSL\MicroserviceMatrixDSL\Template\MicroservicesGenerator.tt"
+            #line 10 "C:\Users\Michal\Documents\Visual Studio 2015\Projects\MicroserviceMatrixDSL\MicroserviceMatrixDSL.TemplateGenerator\Template\MicroservicesGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(microservice.MicroserviceName));
             
             #line default
             #line hidden
             this.Write("Service : ");
             
-            #line 10 "C:\Users\Michal\Documents\Visual Studio 2015\Projects\MicroserviceMatrixDSL\MicroserviceMatrixDSL\Template\MicroservicesGenerator.tt"
+            #line 10 "C:\Users\Michal\Documents\Visual Studio 2015\Projects\MicroserviceMatrixDSL\MicroserviceMatrixDSL.TemplateGenerator\Template\MicroservicesGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(_inheritedFrom));
             
             #line default
             #line hidden
             this.Write(" {\r\n");
             
-            #line 11 "C:\Users\Michal\Documents\Visual Studio 2015\Projects\MicroserviceMatrixDSL\MicroserviceMatrixDSL\Template\MicroservicesGenerator.tt"
+            #line 11 "C:\Users\Michal\Documents\Visual Studio 2015\Projects\MicroserviceMatrixDSL\MicroserviceMatrixDSL.TemplateGenerator\Template\MicroservicesGenerator.tt"
  foreach(var reqRespMessage in reqRespMessages){ 
             
             #line default
             #line hidden
             this.Write("\t\tprotected ");
             
-            #line 12 "C:\Users\Michal\Documents\Visual Studio 2015\Projects\MicroserviceMatrixDSL\MicroserviceMatrixDSL\Template\MicroservicesGenerator.tt"
+            #line 12 "C:\Users\Michal\Documents\Visual Studio 2015\Projects\MicroserviceMatrixDSL\MicroserviceMatrixDSL.TemplateGenerator\Template\MicroservicesGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(MessageTypeNameWithNamespace(reqRespMessage.Value)));
             
             #line default
             #line hidden
             this.Write(" ServiceMethod(");
             
-            #line 12 "C:\Users\Michal\Documents\Visual Studio 2015\Projects\MicroserviceMatrixDSL\MicroserviceMatrixDSL\Template\MicroservicesGenerator.tt"
+            #line 12 "C:\Users\Michal\Documents\Visual Studio 2015\Projects\MicroserviceMatrixDSL\MicroserviceMatrixDSL.TemplateGenerator\Template\MicroservicesGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(MessageTypeNameWithNamespace(reqRespMessage.Key)));
             
             #line default
             #line hidden
             this.Write(" request){\r\n\t\t\treturn on");
             
-            #line 13 "C:\Users\Michal\Documents\Visual Studio 2015\Projects\MicroserviceMatrixDSL\MicroserviceMatrixDSL\Template\MicroservicesGenerator.tt"
+            #line 13 "C:\Users\Michal\Documents\Visual Studio 2015\Projects\MicroserviceMatrixDSL\MicroserviceMatrixDSL.TemplateGenerator\Template\MicroservicesGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(reqRespMessage.Key));
             
             #line default
             #line hidden
             this.Write("Request();\r\n\t\t}\r\n\t\tprotected abstract ");
             
-            #line 15 "C:\Users\Michal\Documents\Visual Studio 2015\Projects\MicroserviceMatrixDSL\MicroserviceMatrixDSL\Template\MicroservicesGenerator.tt"
+            #line 15 "C:\Users\Michal\Documents\Visual Studio 2015\Projects\MicroserviceMatrixDSL\MicroserviceMatrixDSL.TemplateGenerator\Template\MicroservicesGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(MessageTypeNameWithNamespace(reqRespMessage.Value)));
             
             #line default
             #line hidden
             this.Write(" on");
             
-            #line 15 "C:\Users\Michal\Documents\Visual Studio 2015\Projects\MicroserviceMatrixDSL\MicroserviceMatrixDSL\Template\MicroservicesGenerator.tt"
+            #line 15 "C:\Users\Michal\Documents\Visual Studio 2015\Projects\MicroserviceMatrixDSL\MicroserviceMatrixDSL.TemplateGenerator\Template\MicroservicesGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(reqRespMessage.Key));
             
             #line default
             #line hidden
             this.Write("Request(");
             
-            #line 15 "C:\Users\Michal\Documents\Visual Studio 2015\Projects\MicroserviceMatrixDSL\MicroserviceMatrixDSL\Template\MicroservicesGenerator.tt"
+            #line 15 "C:\Users\Michal\Documents\Visual Studio 2015\Projects\MicroserviceMatrixDSL\MicroserviceMatrixDSL.TemplateGenerator\Template\MicroservicesGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(MessageTypeNameWithNamespace(reqRespMessage.Key)));
             
             #line default
             #line hidden
             this.Write(" request);\r\n ");
             
-            #line 16 "C:\Users\Michal\Documents\Visual Studio 2015\Projects\MicroserviceMatrixDSL\MicroserviceMatrixDSL\Template\MicroservicesGenerator.tt"
+            #line 16 "C:\Users\Michal\Documents\Visual Studio 2015\Projects\MicroserviceMatrixDSL\MicroserviceMatrixDSL.TemplateGenerator\Template\MicroservicesGenerator.tt"
  } 
             
             #line default
             #line hidden
             this.Write("\t\r\n");
             
-            #line 17 "C:\Users\Michal\Documents\Visual Studio 2015\Projects\MicroserviceMatrixDSL\MicroserviceMatrixDSL\Template\MicroservicesGenerator.tt"
+            #line 17 "C:\Users\Michal\Documents\Visual Studio 2015\Projects\MicroserviceMatrixDSL\MicroserviceMatrixDSL.TemplateGenerator\Template\MicroservicesGenerator.tt"
  foreach(var sendsMessage in MessagesSendedByMicroserviceWithMixins(microservice.MicroserviceName)){
             
             #line default
             #line hidden
             this.Write(" \r\n\t\tprotected void Send(");
             
-            #line 18 "C:\Users\Michal\Documents\Visual Studio 2015\Projects\MicroserviceMatrixDSL\MicroserviceMatrixDSL\Template\MicroservicesGenerator.tt"
+            #line 18 "C:\Users\Michal\Documents\Visual Studio 2015\Projects\MicroserviceMatrixDSL\MicroserviceMatrixDSL.TemplateGenerator\Template\MicroservicesGenerator.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(MessageTypeNameWithNamespace(sendsMessage)));
             
             #line default
             #line hidden
             this.Write(" message){\r\n\t\t\t//...\r\n\t\t}\r\n");
             
-            #line 21 "C:\Users\Michal\Documents\Visual Studio 2015\Projects\MicroserviceMatrixDSL\MicroserviceMatrixDSL\Template\MicroservicesGenerator.tt"
+            #line 21 "C:\Users\Michal\Documents\Visual Studio 2015\Projects\MicroserviceMatrixDSL\MicroserviceMatrixDSL.TemplateGenerator\Template\MicroservicesGenerator.tt"
 } 
             
             #line default
             #line hidden
             this.Write("\t}\r\n");
             
-            #line 23 "C:\Users\Michal\Documents\Visual Studio 2015\Projects\MicroserviceMatrixDSL\MicroserviceMatrixDSL\Template\MicroservicesGenerator.tt"
+            #line 23 "C:\Users\Michal\Documents\Visual Studio 2015\Projects\MicroserviceMatrixDSL\MicroserviceMatrixDSL.TemplateGenerator\Template\MicroservicesGenerator.tt"
 }
             
             #line default
             #line hidden
             this.Write("}\r\n");
             
-            #line 25 "C:\Users\Michal\Documents\Visual Studio 2015\Projects\MicroserviceMatrixDSL\MicroserviceMatrixDSL\Template\MicroservicesGenerator.tt"
+            #line 25 "C:\Users\Michal\Documents\Visual Studio 2015\Projects\MicroserviceMatrixDSL\MicroserviceMatrixDSL.TemplateGenerator\Template\MicroservicesGenerator.tt"
 }
             
             #line default

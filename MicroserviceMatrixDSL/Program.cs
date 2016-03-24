@@ -1,9 +1,9 @@
 ﻿using System;
 using System.IO;
 using MicroserviceMatrixDSL.AntlrBasedTranspiler;
-using MicroserviceMatrixDSL.CodeTranspiler;
-using MicroserviceMatrixDSL.DescriptionPrinters;
-using MicroserviceMatrixDSL.Generators;
+using MicroserviceMatrixDSL.CSScriptInterpreter;
+using MicroserviceMatrixDSL.Services;
+using MicroserviceMatrixDSL.TemplateGenerator;
 
 namespace MicroserviceMatrixDSL
 {
@@ -17,22 +17,22 @@ namespace MicroserviceMatrixDSL
             var printer = new MicroserviceInfrastructureDescriptionToCSharpCodePrinter();
             //var printer = new MicroserviceInfrastructureDescriptionDebugPrinter();
 
-            var transpiler = new CSharpToCsScriptTranspilerDecorator(
-                new DslToCSharpTranspiler(
-                    new Tokenizer(
-                        input,
-                        new KeywordsProvider()
-                        )), "Messages", "None", "Microservices"
-                );
-            var cg = new CodeGenerator(printer, transpiler, input);
-            File.WriteAllText("test.generated.cs", cg.GeneratedCode);
+            var cg = new CodeGeneratorFactory().Create(input);
+            GenerateCodeFromDslUsing(cg, printer, "test1.generated.cs");
 
             var antrlb = new AntlrMsdlModelBuilder(inputFile);
-            var desc = antrlb.Description;
-            Console.WriteLine(printer.Print(desc));
-            File.WriteAllText("test2.generated.cs", printer.Print(desc));
+            GenerateCodeFromDslUsing(antrlb, printer, "test2.generated.cs");
 
             Console.ReadLine();
+        }
+
+        private static void GenerateCodeFromDslUsing(IInterpreter cg,
+            IMicroserviceInfrastructureDescriptionPrinter printer,
+            string outputFile
+            )
+        {
+            var desc = cg.InterpretedDescription;
+            File.WriteAllText(outputFile, printer.Print(desc));
         }
     }
 }

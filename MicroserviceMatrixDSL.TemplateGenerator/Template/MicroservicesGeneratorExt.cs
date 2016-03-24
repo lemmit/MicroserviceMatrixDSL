@@ -2,7 +2,7 @@
 using System.Linq;
 using MicroserviceMatrixDSL.Descriptions;
 
-namespace MicroserviceMatrixDSL.Template
+namespace MicroserviceMatrixDSL.TemplateGenerator.Template
 {
     public partial class MicroservicesGenerator
     {

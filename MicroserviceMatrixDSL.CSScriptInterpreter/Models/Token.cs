@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace MicroserviceMatrixDSL.CodeTranspiler
+namespace MicroserviceMatrixDSL.CSScriptInterpreter.Models
 {
     public class Token
     {

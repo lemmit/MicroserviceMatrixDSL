@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using MicroserviceMatrixDSL.Builder.Interfaces;
 using MicroserviceMatrixDSL.Descriptions;
@@ -137,7 +136,7 @@ namespace MicroserviceMatrixDSL.Builder
             return new MicroserviceDescriptionBuilder(
                 _microserviceName,
                 _communicationMean,
-                _namespace,
+                namespaceName,
                 _receiveRespondMessages,
                 _sendsMessages,
                 _mixins

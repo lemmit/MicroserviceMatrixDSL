@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Text;
 using MicroserviceMatrixDSL.Descriptions;
-using MicroserviceMatrixDSL.Template;
+using MicroserviceMatrixDSL.Services;
+using MicroserviceMatrixDSL.TemplateGenerator.Template;
 
-namespace MicroserviceMatrixDSL.DescriptionPrinters
+namespace MicroserviceMatrixDSL.TemplateGenerator
 {
     public class MicroserviceInfrastructureDescriptionToCSharpCodePrinter :
         IMicroserviceInfrastructureDescriptionPrinter
